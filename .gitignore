@@ -1,1 +1,21 @@
-# .gitignore - será atualizado em breve
+# gitignore frontend
+
+# dependências
+node_modules/
+
+# build
+dist/
+build/
+
+# variáveis de ambiente
+.env
+
+# logs
+*.log
+
+# sistema
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
