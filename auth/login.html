@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="login.css">
     <title>Login - Altis Biblioteca</title>
 </head>
@@ -15,20 +16,33 @@
     
     
         <div class="right-side">
-            <h2>Bem-vindo de volta!</h2>
-            <p>Faça login para acessar o sistema</p>
+            <div class="header-text">
+                <h2>Bem-vindo de volta!</h2>
+                <p>Faça login para acessar o sistema</p>
+            </div>
+
+            <i class="fa-solid fa-user"></i>
+
             <form> 
                 
                 <label>E-mail</label>
-                <input type="email" placeholder="seuemail@email.com">
+                <div class="input-wrapper">
+                    <input type="email" placeholder="seuemail@email.com" id="email">
+                    <i class="fa-solid fa-eye" id="toggleEmail"></i>
+                </div>
 
                 <label>Senha</label>
-                <input type="password" placeholder="********">
+                <div class="input-wrapper">
+                    <input type="password" placeholder="********" id="senha">
+                    <i class="fa-solid fa-eye" id="toggleSenha"></i>
+                </div>
 
                 <button type="submit">Entrar</button>
                 
-                <a href="recuperar-senha.html">Recuperar senha?</a>
-                <a href="cadastro.html">Realizar cadastro?</a>
+                <div class="links">
+                    <a href="recuperar-senha.html">Recuperar senha?</a>
+                    <a href="cadastro.html">Realizar cadastro?</a>
+                </div>
 
             </form>
         </div>
@@ -36,5 +50,7 @@
     
     
     </div>
+
+    <script src="login.js"></script>
 </body>
 </html>
