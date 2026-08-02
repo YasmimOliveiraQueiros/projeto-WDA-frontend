@@ -16,5 +16,3 @@ function configurarOlho(idInput, idIcone) {
         }
     });
 }
-
-configurarOlho('senha', 'toggleSenha');

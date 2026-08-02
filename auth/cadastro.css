@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --azul-escuro: #1B3A5C;
+    --branco: #FDFFFF;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-side {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-side {
+    background-color: var(--branco);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-inline: 30px;
+    overflow-y: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px;
+    width: 60%;
+    align-self: center;
+    margin-top: 10px;
+}
+
+button + button {
+    margin-top: 4px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    width: 100%;
+}
+
+label {
+    color: var(--azul-escuro);
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.header-text {
+    align-self: center;
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+
+.header-text h2 {
+    color: var(--azul-escuro);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--azul-escuro);
+}
+
+.linha-dupla {
+    display: flex;
+    gap: 10px;
+}
+
+.endereco {
+    display: flex;
+    gap: 8px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2px;
+}

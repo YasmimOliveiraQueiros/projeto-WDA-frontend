@@ -4,52 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="login.css">
-    <title>Login - Altis Biblioteca</title>
+    <link rel="stylesheet" href="recuperar-senha.css">
+    <title>Recuperar Senha - Altis Biblioteca</title>
 </head>
 <body>
     <div class="container">
+
         <div class="left-side">
             <h2>Altis+ Biblioteca</h2>
             <p>Sistema de gestão de aluguéis</p>
         </div> 
     
-    
         <div class="right-side">
             <div class="header-text">
-                <h2>Bem-vindo de volta!</h2>
-                <p>Faça login para acessar o sistema</p>
+                <h2>Recuperar Senha</h2>
             </div>
 
-            <i class="fa-solid fa-user"></i>
-
-            <form> 
-                
+            <form action="redefinir-senha.html">
                 <label>E-mail</label>
                 <div class="input-wrapper">
                     <input type="email" placeholder="seuemail@email.com" id="email">
                 </div>
-
-                <label>Senha</label>
-                <div class="input-wrapper">
-                    <input type="password" placeholder="********" id="senha">
-                    <i class="fa-solid fa-eye" id="toggleSenha"></i>
+                
+                <label>CPF</label>
+                <div class="input-wrapper"><input type="text" placeholder="000.000.000-00" id="cpf">
                 </div>
-
-                <button type="submit">Entrar</button>
+                <button type="submit">Confirmar</button>
+                
+                <button type="button" class="voltar"onclick="window.location.href='login.html'"> Voltar ao Login
+                </button>
                 
                 <div class="links">
                     <a href="recuperar-senha.html">Recuperar senha?</a>
                     <a href="cadastro.html">Realizar cadastro?</a>
                 </div>
-
             </form>
         </div>
-    
-    
-    
     </div>
 
-    <script src="login.js"></script>
+    <script src="recuperar-senha.js"></script>
 </body>
 </html>

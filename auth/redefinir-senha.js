@@ -18,3 +18,4 @@ function configurarOlho(idInput, idIcone) {
 }
 
 configurarOlho('senha', 'toggleSenha');
+configurarOlho('confirmarSenha', 'toggleConfirmarSenha');
