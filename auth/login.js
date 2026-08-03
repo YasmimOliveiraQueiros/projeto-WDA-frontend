@@ -18,3 +18,20 @@ function configurarOlho(idInput, idIcone) {
 }
 
 configurarOlho('senha', 'toggleSenha');
+
+const form = document.querySelector("form");
+const mensagemErro = document.getElementById("mensagemErro");
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    mensagemErro.textContent = "Os dados apresentados não foram encontrados.";
+});
+
+document.getElementById("email").addEventListener("input", function () {
+    mensagemErro.textContent = "";
+});
+
+document.getElementById("senha").addEventListener("input", function () {
+    mensagemErro.textContent = "";
+});

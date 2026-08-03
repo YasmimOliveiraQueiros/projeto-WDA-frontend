@@ -19,3 +19,39 @@ function configurarOlho(idInput, idIcone) {
 
 configurarOlho('senha', 'toggleSenha');
 configurarOlho('confirmarSenha', 'toggleConfirmarSenha');
+
+const form = document.querySelector("form");
+const mensagemErro = document.getElementById("mensagemErro");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const cpf = document.getElementById("cpf").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+    const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
+
+    if (email === "" || cpf === "" || senha === "" || confirmarSenha === "") {
+        mensagemErro.textContent = "Preencha todos os campos.";
+        mensagemErro.style.visibility = "visible";
+        return;
+    }
+
+    if (senha !== confirmarSenha) {
+        mensagemErro.textContent = "As senhas precisam ser iguais.";
+        mensagemErro.style.visibility = "visible";
+        return;
+    }
+
+    window.location.href = "login.html";
+});
+
+document.getElementById("email").addEventListener("input", limparMensagem);
+document.getElementById("cpf").addEventListener("input", limparMensagem);
+document.getElementById("senha").addEventListener("input", limparMensagem);
+document.getElementById("confirmarSenha").addEventListener("input", limparMensagem);
+
+function limparMensagem() {
+    mensagemErro.textContent = "";
+    mensagemErro.style.visibility = "hidden";
+}

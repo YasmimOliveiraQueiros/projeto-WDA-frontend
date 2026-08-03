@@ -112,3 +112,11 @@ label {
     cursor: pointer;
     color: var(--azul-escuro);
 }
+
+.mensagem-erro {
+    color: #C62828;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    min-height: 18px;
+}

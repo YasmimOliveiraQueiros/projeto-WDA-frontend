@@ -22,7 +22,9 @@
             <h2>Cadastrar nova conta</h2>
         </div>
 
-        <form action="login.html">
+        <p id="mensagemErro" class="mensagem-erro"></p>
+
+        <form id="formCadastro" action="login.html">
 
             <label for="nome">Nome completo</label>
             <div class="input-wrapper">
@@ -31,14 +33,13 @@
 
             <div class="linha-dupla">
                 <div class="campo">
-                    <label for="data">Data de</label>
+                    <label for="data">Data de nascimento</label>
                     <input type="date" id="data">
                 </div>
                 <div class="campo">
                     <label for="cpf">CPF</label>
                     <div class="input-wrapper">
                         <input type="text" id="cpf" placeholder="000.000.000-00">
-                        <i class="fa-solid fa-eye" id="toggleCpf"></i>
                     </div>
                 </div>
             </div>
@@ -67,7 +68,6 @@
             <label for="email">E-mail</label>
             <div class="input-wrapper">
                 <input type="email" id="email" placeholder="seuemail@email.com">
-                <i class="fa-solid fa-eye" id="toggleEmail"></i>
             </div>
 
             <label for="senha">Senha</label>

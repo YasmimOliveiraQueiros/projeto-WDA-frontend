@@ -20,14 +20,16 @@
                 <h2>Recuperar Senha</h2>
             </div>
 
-            <form action="redefinir-senha.html">
+            <p id="mensagemErro" class="mensagem-erro"></p>
+
+            <form id="formRecuperar">
                 <label>E-mail</label>
                 <div class="input-wrapper">
                     <input type="email" placeholder="seuemail@email.com" id="email">
                 </div>
                 
-                <label>CPF</label>
-                <div class="input-wrapper"><input type="text" placeholder="000.000.000-00" id="cpf">
+                <label>Senha</label>
+                <div class="input-wrapper"><input type="password" placeholder="********" id="senha">
                 </div>
                 <button type="submit">Confirmar</button>
                 
@@ -38,8 +40,17 @@
                     <a href="recuperar-senha.html">Recuperar senha?</a>
                     <a href="cadastro.html">Realizar cadastro?</a>
                 </div>
+
+                <div class="admin-link">
+                    <a href="redefinir-senha-admin.html">
+                        Você é usuário administrador?
+                    </a>
+                </div>
+
             </form>
+
         </div>
+        
     </div>
 
     <script src="recuperar-senha.js"></script>

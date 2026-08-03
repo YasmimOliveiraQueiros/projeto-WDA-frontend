@@ -47,7 +47,7 @@ form {
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    gap: 5px;
+    gap: 1px;
     margin-top: 10px;
 }
 
@@ -127,4 +127,21 @@ label {
     flex-direction: column;
     flex: 1;
     gap: 2px;
+}
+
+.mensagem-erro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    min-height: 36px;
+    margin-bottom: 20px;
+    padding: 6px 10px;
+    border: 1px solid #C62828;
+    border-radius: 4px;
+    color: var(--azul-escuro);
+    font-size: 14px;
+    text-align: center;
+    visibility: hidden;
 }

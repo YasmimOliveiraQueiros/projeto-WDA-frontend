@@ -1,18 +1,27 @@
-function configurarOlho(idInput, idIcone) {
-    const input = document.getElementById(idInput);
-    const icone = document.getElementById(idIcone);
+const form = document.getElementById("formRecuperar");
+const mensagemErro = document.getElementById("mensagemErro");
 
-    if (!input || !icone) return;
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    icone.addEventListener('click', function () {
-        if (input.type === 'password') {
-            input.type = 'text';
-            this.classList.remove('fa-eye-slash');
-            this.classList.add('fa-eye');
-        } else {
-            input.type = 'password';
-            this.classList.remove('fa-eye');
-            this.classList.add('fa-eye-slash');
-        }
-    });
-}
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+
+    if (email === "" || senha === "") {
+        mensagemErro.textContent = "Email ou senha não podem estar vazios.";
+        mensagemErro.style.visibility = "visible";
+        return;
+    }
+
+    window.location.href = "redefinir-senha.html";
+});
+
+document.getElementById("email").addEventListener("input", function() {
+    mensagemErro.style.visibility = "hidden";
+    mensagemErro.textContent = "";
+});
+
+document.getElementById("senha").addEventListener("input", function() {
+    mensagemErro.style.visibility = "hidden";
+    mensagemErro.textContent = "";
+});
