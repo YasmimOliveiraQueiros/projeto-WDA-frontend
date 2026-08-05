@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguéis - Altis Biblioteca</title>
+
+    <link rel="stylesheet" href="alugueis.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo"></div>
+            
+            <nav>
+                <a href="../dashboard/dashboard.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Dashboard
+                </a>
+
+                <a href="alugueis.html" class="ativo">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    Aluguéis
+                </a>
+
+                <a href="../livros/livros.html">
+                    <i class="fa-solid fa-book"></i>
+                    Livros
+                </a>
+
+                <a href="../editoras/editoras.html">
+                    <i class="fa-solid fa-building"></i>
+                    Editoras
+                </a>
+
+                <a href="../usuarios/usuarios.html">
+                    <i class="fa-solid fa-users"></i>
+                    Usuários
+                </a>
+
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </div>
+
+        <div class="content">
+
+            <header>
+
+                <div>
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de empréstimos de livros</p>
+                </div>
+
+                <div class="perfil">
+                    <div class="avatar">LF</div>
+                    <span>Levy Fernandes</span>
+                </div>
+
+            </header>
+
+            <div class="topo">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <span class="pendente"></span>
+                        <p>Pendentes</p>
+                        <h2 id="totalPendentes">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="atrasado"></span>
+                        <p>Atrasados</p>
+                        <h2 id="totalAtrasados">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="devolvido"></span>
+                        <p>Devolvidos</p>
+                        <h2 id="totalDevolvidos">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="total"></span>
+                        <p>Total</p>
+                        <h2 id="totalGeral">0</h2>
+                    </div>
+
+                </div>
+
+                <button class="btnNovo">
+                    + Novo aluguel
+                </button>
+
+            </div>
+
+            <div class="pesquisa">
+
+                <input type="text" placeholder="Buscar por locatário ou livro">
+
+                <select id="filtroStatus">
+                    <option value="todos">Todos os status</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="atrasado">Atrasado</option>
+                    <option value="devolvido">Devolvido</option>
+                </select>
+
+            </div>
+
+            <div class="tabela">
+
+                <table>
+                    <thead>
+                        <tr>
+
+                            <th>Locatário</th>
+                            <th>Livro</th>
+                            <th>Aluguel</th>
+                            <th>Devolução</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+
+                        </tr>
+                    </thead>
+                <tbody>
+
+                        <tr>
+                            <td>Anna Silva</td>
+                            <td>Dom Casmurro</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status vermelho">
+                                    Entregue C/A
+                                </span>
+                            </td>
+
+                            <td>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Fulano S.</td>
+                            <td>O Alquimista</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status verde">
+                                    Entregue C/A
+                                </span>
+                            </td>
+
+                            <td>
+                                <select>
+                                    <option>Devolvido</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Ciclano</td>
+                            <td>O Alquimista</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status vermelho">
+                                    Entregue C/A
+                                </span>
+                            </td>
+
+                            <td>
+                                <select>
+                                    <option>Devolvido</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="alugueis.js"></script>
+
+</body>
+
+</html>
