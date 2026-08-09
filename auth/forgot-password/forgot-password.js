@@ -13,7 +13,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    window.location.href = "redefinir-senha.html";
+    window.location.href = "../reset-password/reset-password.html";
 });
 
 document.getElementById("email").addEventListener("input", function() {

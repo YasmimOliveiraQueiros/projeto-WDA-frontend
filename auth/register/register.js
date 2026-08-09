@@ -38,7 +38,7 @@ form.addEventListener("submit", function(event) {
         return;
     }
 
-    window.location.href = "login.html";
+    window.location.href = "../login/login.html";
 });
 
 function limparMensagem() {
