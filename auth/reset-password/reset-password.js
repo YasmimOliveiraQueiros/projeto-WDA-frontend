@@ -55,3 +55,15 @@ function limparMensagem() {
     mensagemErro.textContent = "";
     mensagemErro.style.visibility = "hidden";
 }
+
+const cpf = document.getElementById("cpf");
+
+cpf.addEventListener("input", function () {
+    let valor = cpf.value.replace(/\D/g, "");
+
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+    cpf.value = valor;
+});

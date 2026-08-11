@@ -5,10 +5,10 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     const email = document.getElementById("email").value.trim();
-    const senha = document.getElementById("senha").value.trim();
+    const cpf = document.getElementById("cpf").value.trim();
 
-    if (email === "" || senha === "") {
-        mensagemErro.textContent = "Email ou senha não podem estar vazios.";
+    if (email === "" || cpf === "") {
+        mensagemErro.textContent = "Todos os campos são obrigatórios.";
         mensagemErro.style.visibility = "visible";
         return;
     }
@@ -16,12 +16,21 @@ form.addEventListener("submit", function(event) {
     window.location.href = "../reset-password/reset-password.html";
 });
 
-document.getElementById("email").addEventListener("input", function() {
-    mensagemErro.style.visibility = "hidden";
-    mensagemErro.textContent = "";
+cpf.addEventListener("input", function () {
+    let valor = cpf.value.replace(/\D/g, "");
+
+    if (valor.length > 3) {
+        valor = valor.slice(0, 3) + "." + valor.slice(3);
+    }
+
+    if (valor.length > 7) {
+        valor = valor.slice(0, 7) + "." + valor.slice(7);
+    }
+
+    if (valor.length > 11) {
+        valor = valor.slice(0, 11) + "-" + valor.slice(11);
+    }
+
+    cpf.value = valor.slice(0, 14);
 });
 
-document.getElementById("senha").addEventListener("input", function() {
-    mensagemErro.style.visibility = "hidden";
-    mensagemErro.textContent = "";
-});

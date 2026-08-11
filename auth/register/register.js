@@ -1,3 +1,25 @@
+function configurarOlho(idInput, idIcone) {
+    const input = document.getElementById(idInput);
+    const icone = document.getElementById(idIcone);
+
+    if (!input || !icone) return;
+
+    icone.addEventListener('click', function () {
+        if (input.type === 'password') {
+            input.type = 'text';
+            this.classList.remove('fa-eye-slash');
+            this.classList.add('fa-eye');
+        } else {
+            input.type = 'password';
+            this.classList.remove('fa-eye');
+            this.classList.add('fa-eye-slash');
+        }
+    });
+}
+
+configurarOlho('senha', 'toggleSenha');
+configurarOlho('confirmarSenha', 'toggleConfirmarSenha');
+
 const form = document.getElementById("formCadastro");
 const mensagemErro = document.getElementById("mensagemErro");
 
@@ -48,4 +70,41 @@ function limparMensagem() {
 
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("input", limparMensagem);
+});
+
+const cpf = document.getElementById("cpf");
+const telefone = document.getElementById("telefone");
+
+
+cpf.addEventListener("input", function () {
+    let valor = cpf.value.replace(/\D/g, "");
+
+    if (valor.length > 3) {
+        valor = valor.slice(0, 3) + "." + valor.slice(3);
+    }
+
+    if (valor.length > 7) {
+        valor = valor.slice(0, 7) + "." + valor.slice(7);
+    }
+
+    if (valor.length > 11) {
+        valor = valor.slice(0, 11) + "-" + valor.slice(11);
+    }
+
+    cpf.value = valor.slice(0, 14);
+});
+
+telefone.addEventListener("input", function () {
+    let valor = telefone.value.replace(/\D/g, "");
+
+
+    if (valor.length > 2) {
+        valor = "(" + valor.slice(0, 2) + ") " + valor.slice(2);
+    }
+
+    if (valor.length > 9) {
+        valor = valor.slice(0, 9) + "-" + valor.slice(9);
+    }
+
+    telefone.value = valor.slice(0, 15);
 });
