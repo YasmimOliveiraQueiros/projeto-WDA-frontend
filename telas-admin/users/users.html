@@ -65,38 +65,83 @@
             <header>
 
                 <div class="titulo">
-
                     <h1>Altis+ Biblioteca</h1>
-
                     <p>Controle de usuários</p>
-
                 </div>
 
                 <div class="perfil">
 
                     <div class="avatar">
-                        <!-- Avatar será preenchido futuramente -->
+                        LF
                     </div>
 
-                    <span>Admin</span>
+                    <span>Levy Fernandes</span>
 
                 </div>
 
             </header>
 
 
-            <section class="users">
+            <section class="topo">
 
-                <!--
-                    Conteúdo do dashboard será adicionado
-                    quando usuários, livros e empréstimos
-                    estiverem implementados.
-                -->
+                <div class="cards">
+
+                    <div class="card">
+                        <span class="ativo"></span>
+                        <p>Ativos</p>
+                        <h2 id="totalAtivos">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="inativo"></span>
+                        <p>Inativos</p>
+                        <h2 id="totalInativos">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="total"></span>
+                        <p>Total</p>
+                        <h2 id="totalUsuarios">0</h2>
+                    </div>
+
+                </div>
 
             </section>
 
-        </main>
+            <section class="pesquisa">
 
+                <input
+                    type="text"
+                    id="campoBusca"
+                    placeholder="Buscar por nome ou email">
+
+                <select id="filtroStatus">
+                    <option value="todos">Todos os status</option>
+                    <option value="ativo">Ativo</option>
+                    <option value="inativo">Inativo</option>
+                </select>
+
+            </section>
+
+            <section class="tabela">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Livros alugados</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaUsuarios"></tbody>
+
+                </table>
+
+        </main>
     </div>
 
     <script src="users.js"></script>
