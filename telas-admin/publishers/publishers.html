@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editoras - Altis+ Biblioteca</title>
+    <link rel="stylesheet" href="publishers.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo"></div>
+
+            <nav>
+
+                <a href="../dashboard/dashboard.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Dashboard
+                </a>
+
+                <a href="../loans/loans.html">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    Aluguéis
+                </a>
+
+                <a href="../books/books.html">
+                    <i class="fa-solid fa-book"></i>
+                    Livros
+                </a>
+
+                <a href="publishers.html" class="ativo">
+                    <i class="fa-solid fa-building"></i>
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <i class="fa-solid fa-users"></i>
+                    Usuários
+                </a>
+
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </div>
+
+
+        <div class="content">
+
+            <header>
+
+                <div>
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de empréstimos de livros</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        LF
+                    </div>
+
+                    <span>Levy Fernandes</span>
+
+                </div>
+
+            </header>
+
+
+            <div class="topo">
+
+                <div class="cards">
+
+                    <div class="card">
+
+                        <span class="editoras"></span>
+
+                        <p>Editoras</p>
+
+                        <h2 id="totalEditoras">0</h2>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <span class="livros"></span>
+
+                        <p>Livros vinculados</p>
+
+                        <h2 id="totalLivros">0</h2>
+
+                    </div>
+
+                </div>
+
+
+                <button class="btnNova">
+                    + Nova editora
+                </button>
+
+            </div>
+
+
+            <div class="pesquisa">
+
+                <input
+                    type="text"
+                    id="campoBusca"
+                    placeholder="Buscar por nome">
+
+            </div>
+
+
+            <div class="tabela">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Nome</th>
+                            <th>Livros cadastrados</th>
+                            <th>Ação</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="listaEditoras">
+
+                        <tr>
+
+                            <td>Companhia das Letras</td>
+                            <td>2</td>
+
+                            <td class="acoes">
+
+                                <button class="editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Record</td>
+                            <td>8</td>
+
+                            <td class="acoes">
+
+                                <button class="editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Rocco</td>
+                            <td>10</td>
+
+                            <td class="acoes">
+
+                                <button class="editar">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+
+                                <button class="excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="publishers.js"></script>
+
+</body>
+
+</html>
