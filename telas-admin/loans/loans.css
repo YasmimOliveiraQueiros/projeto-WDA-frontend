@@ -10,7 +10,6 @@
     --azul-escuro:#1B3A5C;
     --branco:#FFFFFF;
     --cinza:#F4F4F4;
-    --borda:#1B3A5C;
 }
 
 body{
@@ -163,7 +162,7 @@ header p{
     width:115px;
     height:90px;
     background:white;
-    border:1px solid var(--borda);
+    border:1px solid var(--azul-escuro);
     border-radius:6px;
     padding:10px;
 }
@@ -233,8 +232,8 @@ header p{
 .pesquisa input{
     flex:1;
     height:38px;
-    padding:0 12px;
-    border:1px solid var(--borda);
+    padding:12px;
+    border:1px solid var(--azul-escuro);
     border-radius:6px;
     font-family:'Inter', sans-serif;
     font-size:14px;
@@ -249,7 +248,7 @@ header p{
     width:180px;
     height:38px;
     padding:0 10px;
-    border:1px solid var(--borda);
+    border:1px solid var(--azul-escuro);
     border-radius:6px;
     font-family:'Inter', sans-serif;
     font-size:14px;
@@ -266,7 +265,7 @@ header p{
 
 .tabela{
     background:white;
-    border:1px solid var(--borda);
+    border:1px solid var(--azul-escuro);
     border-radius:6px;
     overflow:hidden;
 }
@@ -324,7 +323,7 @@ tbody tr:last-child td{
 td select{
     width:120px;
     height:32px;
-    border:1px solid var(--borda);
+    border:1px solid var(--azul-escuro);
     border-radius:5px;
     padding:0 8px;
     font-family:'Inter', sans-serif;

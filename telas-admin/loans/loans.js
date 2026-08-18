@@ -8,6 +8,35 @@ const totalAtrasados = document.getElementById("totalAtrasados");
 const totalDevolvidos = document.getElementById("totalDevolvidos");
 const totalGeral = document.getElementById("totalGeral");
 
+
+/* Define o status inicial de cada linha */
+
+function definirStatusInicial() {
+
+    linhas.forEach(linha => {
+
+        const badge = linha.querySelector(".status");
+        const select = linha.querySelector(".acaoStatus");
+
+        if (badge.classList.contains("pendente")) {
+            select.value = "pendente";
+        }
+
+        else if (badge.classList.contains("atrasado")) {
+            select.value = "atrasado";
+        }
+
+        else if (badge.classList.contains("devolvido")) {
+            select.value = "devolvido";
+        }
+
+    });
+
+}
+
+
+/* Atualiza os cards */
+
 function atualizarCards() {
 
     let pendentes = 0;
@@ -18,15 +47,15 @@ function atualizarCards() {
 
         const status = linha.querySelector(".acaoStatus").value;
 
-        if(status === "pendente"){
+        if (status === "pendente") {
             pendentes++;
         }
 
-        if(status === "atrasado"){
+        if (status === "atrasado") {
             atrasados++;
         }
 
-        if(status === "devolvido"){
+        if (status === "devolvido") {
             devolvidos++;
         }
 
@@ -37,6 +66,9 @@ function atualizarCards() {
     totalDevolvidos.textContent = devolvidos;
     totalGeral.textContent = linhas.length;
 }
+
+
+/* Filtra a tabela */
 
 function filtrarTabela() {
 
@@ -62,7 +94,7 @@ function filtrarTabela() {
             statusFiltro === "todos" ||
             status === statusFiltro;
 
-        if(encontrouTexto && encontrouStatus){
+        if (encontrouTexto && encontrouStatus) {
             linha.style.display = "";
         } else {
             linha.style.display = "none";
@@ -72,34 +104,34 @@ function filtrarTabela() {
 
 }
 
-document.querySelectorAll(".acaoStatus")
-.forEach(select => {
+
+/* Altera o status */
+
+document.querySelectorAll(".acaoStatus").forEach(select => {
 
     select.addEventListener("change", () => {
 
         const linha = select.closest("tr");
+        const badge = linha.querySelector(".status");
 
-        const badge =
-            linha.querySelector(".status");
-
-        if(select.value === "pendente"){
+        if (select.value === "pendente") {
 
             badge.textContent = "Pendente";
-            badge.className = "status";
+            badge.className = "status pendente";
 
         }
 
-        if(select.value === "devolvido"){
+        if (select.value === "devolvido") {
 
             badge.textContent = "Devolvido";
-            badge.className = "status verde";
+            badge.className = "status devolvido";
 
         }
 
-        if(select.value === "atrasado"){
+        if (select.value === "atrasado") {
 
             badge.textContent = "Devolvido C/A";
-            badge.className = "status vermelho";
+            badge.className = "status atrasado";
 
         }
 
@@ -110,7 +142,12 @@ document.querySelectorAll(".acaoStatus")
 
 });
 
+
+/* Eventos */
 busca.addEventListener("input", filtrarTabela);
 filtro.addEventListener("change", filtrarTabela);
 
+
+/* Inicialização */
+definirStatusInicial();
 atualizarCards();

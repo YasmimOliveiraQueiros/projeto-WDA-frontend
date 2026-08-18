@@ -13,10 +13,13 @@
 <body>
 
     <div class="container">
+
         <div class="sidebar">
+
             <div class="logo"></div>
-            
+
             <nav>
+
                 <a href="../dashboard/dashboard.html">
                     <i class="fa-solid fa-chart-column"></i>
                     Dashboard
@@ -48,6 +51,7 @@
 
         </div>
 
+
         <div class="content">
 
             <header>
@@ -63,6 +67,7 @@
                 </div>
 
             </header>
+
 
             <div class="topo">
 
@@ -100,6 +105,7 @@
 
             </div>
 
+
             <div class="pesquisa">
 
                 <input type="text" placeholder="Buscar por locatário ou livro">
@@ -116,29 +122,35 @@
             <div class="tabela">
 
                 <table>
-                    <thead>
-                        <tr>
 
+                    <thead>
+
+                        <tr>
                             <th>Locatário</th>
                             <th>Livro</th>
                             <th>Aluguel</th>
                             <th>Devolução</th>
                             <th>Status</th>
                             <th>Ação</th>
-
                         </tr>
+
                     </thead>
-                <tbody>
+
+
+                    <tbody>
+
+                        <!-- Anna -->
 
                         <tr>
+
                             <td>Anna Silva</td>
                             <td>Dom Casmurro</td>
                             <td>01/07</td>
                             <td>16/07</td>
 
                             <td>
-                                <span class="status vermelho">
-                                    Entregue C/A
+                                <span class="status atrasado">
+                                    Devolvido C/A
                                 </span>
                             </td>
 
@@ -149,44 +161,59 @@
                                     <option value="atrasado">Devolvido C/A</option>
                                 </select>
                             </td>
+
                         </tr>
 
+
+                        <!-- Fulano -->
+
                         <tr>
+
                             <td>Fulano S.</td>
                             <td>O Alquimista</td>
                             <td>01/07</td>
                             <td>16/07</td>
 
                             <td>
-                                <span class="status verde">
-                                    Entregue C/A
+                                <span class="status devolvido">
+                                    Devolvido
                                 </span>
                             </td>
 
                             <td>
-                                <select>
-                                    <option>Devolvido</option>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
                                 </select>
                             </td>
+
                         </tr>
 
+
+                        <!-- Ciclano -->
+
                         <tr>
+
                             <td>Ciclano</td>
                             <td>O Alquimista</td>
                             <td>01/07</td>
                             <td>16/07</td>
 
                             <td>
-                                <span class="status vermelho">
-                                    Entregue C/A
+                                <span class="status pendente">
+                                    Pendente
                                 </span>
                             </td>
 
                             <td>
-                                <select>
-                                    <option>Devolvido</option>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
                                 </select>
                             </td>
+
                         </tr>
                     </tbody>
                 </table>
