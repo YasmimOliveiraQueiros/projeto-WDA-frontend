@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros - Altis+ Biblioteca</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="books.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <!-- Logo será adicionada futuramente -->
+            </div>
+
+            <nav>
+
+                <a href="../dashboard/dashboard.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Dashboard
+                </a>
+
+                <a href="../loans/loans.html">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                    Aluguéis
+                </a>
+                
+                <!-- Página adicionada fururamente -->
+                <a href="../books/books.html" class="ativo">
+                    <i class="fa-solid fa-book"></i>
+                    Livros
+                </a>
+
+                <!-- Página adicionada fururamente -->
+                <a href="../publishers/publishers.html">
+                    <i class="fa-solid fa-building"></i>
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <i class="fa-solid fa-users"></i>
+                    Usuários
+                </a>
+
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </aside>
+
+
+        <main class="content">
+
+            <header>
+
+                <div class="titulo">
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de gestão de livros</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        LF
+                    </div>
+
+                    <span>Levy Fernandes</span>
+
+                </div>
+
+            </header>
+
+
+            <section class="topo">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <span class="disponiveis"></span>
+                        <p>Disponíveis</p>
+                        <h2 id="totalDisponiveis">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="Alugados"></span>
+                        <p>Alugados</p>
+                        <h2 id="totalAlugados">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="total"></span>
+                        <p>Total</p>
+                        <h2 id="totalLivros">0</h2>
+                    </div>
+
+                </div>
+                
+                <button class="btnNovo">
+                    + Novo livro
+                </button>
+
+            </section>
+            
+            <section class="pesquisa">
+
+                <input
+                    type="text"
+                    id="campoBusca"
+                    placeholder="Buscar por título ou autor">
+
+                <select id="filtroStatus">
+                    <option value="todos">Todos os status</option>
+                    <option value="disponivel">Disponível</option>
+                    <option value="alugado">Alugado</option>
+                </select>
+
+            </section>
+
+            <section class="tabela">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Editora</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaLivros"></tbody>
+
+                </table>
+            </section>
+
+            <div class="modal" id="modalLivro">
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Editar livro</h2>
+
+                        <button type="button" class="fecharModal" id="fecharModalLivro">
+                            &times;
+
+                        </button>
+                    </div>
+                    
+                    <form id="formLivro">
+
+
+                        <label for="tituloLivro">Título</label>
+
+                        <input type="text" id="tituloLivro">
+                        <label for="autorLivro">Autor</label>
+                        <input type="text" id="autorLivro">
+                        <label for="editoraLivro">Editora</label>
+                        <input type="text" id="editoraLivro">
+
+                        <label for="statusLivroModal">Status</label>
+                        <select id="statusLivroModal">
+                            <option value="disponivel">Disponível</option>
+                            <option value="alugado">Alugado</option>
+                        </select>
+                        
+                        <div class="modalAcoes">
+
+                            <button type="button" class="btnCancelar" id="cancelarLivro">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btnSalvar">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+    <script src="books.js"></script>
+
+</body>
+
+</html>
