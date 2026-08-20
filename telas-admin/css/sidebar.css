@@ -1,0 +1,89 @@
+.sidebar {
+    width: 180px;
+    min-height: 100vh;
+    background-color: #1B3A5C;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Logo */
+
+.logo {
+    width: 70px;
+    height: 70px;
+
+    border: 2px dashed #FFFFFF;
+    border-radius: 8px;
+
+    margin: 7px auto 22px;
+}
+
+/* Linha abaixo da logo */
+
+.sidebar::after {
+    content: "";
+
+    position: absolute;
+
+    top: 99px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: #FFFFFF;
+}
+
+/* Menu */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 10px;
+    margin-top: 17px;
+}
+
+.sidebar a {
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 10px;
+    margin-bottom: 3px;
+
+    gap: 12px;
+
+    border-radius: 6px;
+
+    color: #FFFFFF;
+    text-decoration: none;
+
+    font-size: 16px;
+}
+
+.sidebar i {
+    width: 22px;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.sidebar a.ativo {
+    background-color: #4F6278;
+}
+
+.admin {
+    margin-top: auto;
+    margin-bottom: 22px;
+
+    text-align: center;
+
+    font-weight: 600;
+}
