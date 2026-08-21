@@ -2,18 +2,21 @@ const usuarios = [
     {
         nome: "Anna Silva",
         email: "ana.silva@email.com",
+        telefone: "(85) 99999-9999",
         livros: 12,
         status: "inativo"
     },
     {
         nome: "Fulano S.",
         email: "joao.souza@email.com",
+        telefone: "(85) 98888-8888",
         livros: 5,
         status: "ativo"
     },
     {
         nome: "Ciclano",
         email: "maria.lima@email.com",
+        telefone: "(85) 97777-7777",
         livros: 2,
         status: "inativo"
     }
@@ -45,6 +48,8 @@ function mostrarUsuarios(lista) {
                 </a>
             </td>
 
+            <td>${usuario.telefone}</td>
+            
             <td>${usuario.livros}</td>
 
             <td>

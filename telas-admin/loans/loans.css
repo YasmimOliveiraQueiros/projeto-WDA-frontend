@@ -147,11 +147,11 @@
 ========================= */
 
 .tabela {
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid #1B3A5C;
+    background-color: var(--branco);
+    border: 1px solid var(--azul-escuro);
     border-radius: 6px;
-    overflow: hidden;
+    padding: 0 4px;
+    min-height: 250px;
 }
 
 table {
@@ -164,19 +164,17 @@ thead {
 }
 
 th {
-    padding: 14px 15px;
     text-align: left;
-    color: #1B3A5C;
+    color: var(--azul-escuro);
+    padding: 10px;
+    border-bottom: 1px solid #BDBDBD;
     font-size: 14px;
-    font-weight: 600;
-    border-bottom: 1px solid #D9D9D9;
 }
 
 td {
-    padding: 14px 15px;
-    font-size: 14px;
-    color: #333;
-    border-bottom: 1px solid #E8E8E8;
+    padding: 8px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 13px;
 }
 
 tbody tr:last-child td {

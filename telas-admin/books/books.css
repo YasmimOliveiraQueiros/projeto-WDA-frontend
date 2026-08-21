@@ -59,7 +59,7 @@
     background-color: #4CAF50;
 }
 
-.alugados {
+.Alugados {
     background-color: #E94B4B;
 }
 
@@ -107,11 +107,13 @@
 
 /* Tabela */
 .tabela {
+    width: 100%;
     background-color: var(--branco);
     border: 1px solid var(--azul-escuro);
     border-radius: 6px;
     padding: 0 4px;
     min-height: 250px;
+    overflow: hidden;
 }
 
 table {
@@ -125,13 +127,43 @@ th {
     padding: 10px;
     border-bottom: 1px solid #BDBDBD;
     font-size: 14px;
+    font-weight: 600;
 }
 
 td {
     padding: 8px 10px;
+    color: #444;
     border-bottom: 1px solid #EEEEEE;
     font-size: 13px;
 }
+
+th:nth-child(1) {
+    width: 25%;
+}
+
+th:nth-child(2) {
+    width: 25%;
+}
+
+th:nth-child(3) {
+    width: 18%;
+}
+
+th:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+
+th:nth-child(5) {
+    width: 17%;
+    text-align: center;
+}
+
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: center;
+}
+
 
 
 /* Status */
@@ -181,6 +213,7 @@ td {
 .acao {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -217,13 +250,9 @@ td {
     border-radius: 6px;
     background: var(--azul-escuro);
     color: var(--branco);
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
-}
-
-.btnNovo:hover {
-    opacity: .9;
 }
 
 /* Modal */
@@ -286,11 +315,15 @@ td {
 
 #formLivro input,
 #formLivro select {
+    width: 100%;
     height: 36px;
     padding: 0 10px;
     border: 1px solid #1B3A5C;
     border-radius: 5px;
+    background: var(--branco);
     font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
 }
 
 .modalAcoes {
@@ -306,6 +339,8 @@ td {
     padding: 0 16px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
 }
 
 .btnCancelar {
@@ -318,4 +353,12 @@ td {
     background: #1B3A5C;
     border: 1px solid #1B3A5C;
     color: #FFFFFF;
+}
+
+.btnCancelar:hover {
+    background: #F4F4F4;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
 }

@@ -109,6 +109,10 @@ table {
     border-collapse: collapse;
 }
 
+.tabela a {
+    color: solid var(--azul-escuro);
+    text-decoration: none;
+}
 th {
     text-align: left;
     color: var(--azul-escuro);
@@ -121,6 +125,30 @@ td {
     padding: 8px 10px;
     border-bottom: 1px solid #EEEEEE;
     font-size: 13px;
+}
+
+th:nth-child(1) {
+    width: 18%;
+}
+
+th:nth-child(2) {
+    width: 25%;
+}
+
+th:nth-child(3) {
+    width: 18%;
+}
+
+th:nth-child(4) {
+    width: 15%;
+}
+
+th:nth-child(5) {
+    width: 12%;
+}
+
+th:nth-child(6) {
+    width: 13%;
 }
 
 .status {
