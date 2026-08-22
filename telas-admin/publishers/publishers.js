@@ -38,6 +38,8 @@ const listaEditoras = document.getElementById("listaEditoras");
 const totalEditoras = document.getElementById("totalEditoras");
 const totalLivros = document.getElementById("totalLivros");
 const campoBusca = document.getElementById("campoBusca");
+
+/*modal de editar*/
 const modalEditora = document.getElementById("modalEditora");
 const formEditora = document.getElementById("formEditora");
 const nomeEditora = document.getElementById("nomeEditora");
@@ -48,7 +50,17 @@ const emailEditora = document.getElementById("emailEditora");
 const statusEditora = document.getElementById("statusEditora");
 const fecharModalEditora = document.getElementById("fecharModalEditora");
 const cancelarEditora = document.getElementById("cancelarEditora");
+
 let editoraEditando = null;
+
+
+// Modal Nova editora
+const novoNomeEditora = document.getElementById("novoNomeEditora");
+const novoCnpjEditora = document.getElementById("novoCnpjEditora");
+const novaCidadeEditora = document.getElementById("novaCidadeEditora");
+const novosExemplaresEditora = document.getElementById("novosExemplaresEditora");
+const novoEmailEditora = document.getElementById("novoEmailEditora");
+const novoStatusEditora = document.getElementById("novoStatusEditora");
 
 
 function mostrarEditoras(lista) {
@@ -166,10 +178,82 @@ formEditora.addEventListener("submit", function(event) {
     filtrarEditoras();
 });
 
+/* Abrir modal Nova editora */
+btnNovaEditora.addEventListener("click", function() {
+    formNovaEditora.reset();
+    novoStatusEditora.value = "ativa";
+    novosExemplaresEditora.value = 0;
+    modalNovaEditora.classList.add("aberto");
+});
+
+
+/* Salvar nova editora */
+btnNovaEditora.addEventListener("click", function() {
+    formNovaEditora.reset();
+    modalNovaEditora.classList.add("aberto");
+
+});
+
+
+formNovaEditora.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+    const nome = novoNomeEditora.value.trim();
+
+    if (nome === "") {
+        alert("Informe o nome da editora.");
+        return;
+    }
+
+    const novaEditora = {
+        id: Date.now(),
+        nome: nome,
+        email: "",
+        cnpj: "",
+        cidade: "",
+        exemplares: 0,
+        status: "ativa",
+        vinculo: false,
+
+    };
+
+    editoras.push(novaEditora);
+
+    modalNovaEditora.classList.remove("aberto");
+    formNovaEditora.reset();
+
+    atualizarCards();
+    filtrarEditoras();
+});
+
+
+/* Fechar modal Nova editora */
+fecharModalNovaEditora.addEventListener( "click", function() {
+
+        modalNovaEditora.classList.remove("aberto");
+        formNovaEditora.reset();
+    }
+);
+
+
+cancelarNovaEditora.addEventListener("click", function() {
+        modalNovaEditora.classList.remove("aberto");
+        formNovaEditora.reset();
+    }
+);
+
+
+/* Busca */
+campoBusca.addEventListener("input",filtrarEditoras);
+
+/* Inicialização */
+atualizarCards();
+mostrarEditoras(editoras);
+
+
 fecharModalEditora.addEventListener("click", function() {
 
     modalEditora.classList.remove("aberto");
-
     editoraEditando = null;
 });
 

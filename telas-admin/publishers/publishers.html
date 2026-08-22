@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    <button class="btnNova">
+                    <button class="btnNova" id="btnNovaEditora">
                         + Nova editora
                     </button>
                 </div>
@@ -236,6 +236,157 @@
                                 Salvar
                             </button>
 
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Modal: Nova editora -->
+             <div class="modal" id="modalNovaEditora">
+
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Nova editora</h2>
+                        
+                        <button
+                        type="button"
+                        class="fecharModal"
+                        id="fecharModalNovaEditora">
+                        &times;
+                        </button>
+                    </div>
+                    
+                    <form id="formNovaEditora">
+                        
+                        <label for="novoNomeEditora">
+                            Nome da editora
+                        </label>
+                        
+                        <input 
+                        type="text"
+                        id="novoNomeEditora"
+                        placeholder="Nome da editora">
+
+                        <label for="novoEmailEditora">
+                            E-mail
+                        </label>
+
+                        <input
+                        type="email"
+                        id="novoEmailEditora"
+                        placeholder="E-mail">
+
+                        <label for="novoCnpjEditora">
+                            CNPJ
+                        </label>
+                        
+                        <input
+                        type="text"
+                        id="novoCnpjEditora"
+                        placeholder="00.000.000/0000-00">
+
+                        <label for="novaCidadeEditora">
+                            Cidade
+                        </label>
+
+                        <input
+                        type="text"
+                        id="novaCidadeEditora"
+                        placeholder="Cidade - UF">
+
+                        <label for="novosExemplaresEditora">
+                            Exemplares
+                        </label>
+
+                        <input
+                        type="number"
+                        id="novosExemplaresEditora"
+                        min="0"
+                        value="0">
+
+                        <label for="novoStatusEditora">
+                            Status
+                        </label>
+                        
+                        <select id="novoStatusEditora">
+                            <option value="ativa">
+                                Ativa
+                            </option>
+
+                            <option value="inativa">
+                                Inativa
+                            </option>
+                        </select>
+
+                        
+                        <div class="modalAcoes">
+                            
+                            <button
+                            type="button"
+                            class="btnCancelar"
+                            id="cancelarNovaEditora">
+                            Cancelar
+                            </button>
+                            
+                            <button
+                            type="submit"
+                            class="btnSalvar">
+                            Salvar
+                            </button>
+                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Modal: Editar editora -->
+             <div class="modal" id="modalEditora">
+
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Editar editora</h2>
+
+                        <button
+                        type="button"
+                        class="fecharModal"
+                        id="fecharModalEditora">
+                        &times;
+                        </button>
+                    </div>
+                    
+                    <form id="formEditora">
+                        
+                        <label for="nomeEditora">
+                            Nome da editora
+                        </label>
+
+
+                        <input
+                        type="text"
+                        id="nomeEditora">
+                        
+                        <label for="observacaoEditora">
+                            Observações (opcional)
+                        </label>
+
+                        <textarea id="observacaoEditora"></textarea>
+                        
+                        <div class="modalAcoes">
+                            
+                            <button
+                            type="button"
+                            class="btnCancelar"
+                            id="cancelarEditora">
+                            Cancelar
+                            </button>
+
+                            <button
+                             ype="submit"
+                            class="btnSalvar">
+                            Salvar
+                            </button>
                         </div>
                     </form>
                 </div>
