@@ -1,0 +1,165 @@
+.tenantDashboard {
+    padding: 15px 0px 20px;
+}
+
+/* Cards */
+.cardsTenant {
+    display: grid;
+    grid-template-columns: 130px 160px minmax(280px, 1fr);
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.cardTenant {
+    height: 82px;
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.cardTenant p {
+    margin: 0;
+    color: #1B3A5C;
+    font-size: 12px;
+}
+
+.cardTenant h2 {
+    margin-top: 6px;
+    color: #1B3A5C;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+/* Bolinha do card */
+.cardTenant .alugados {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-radius: 50%;
+    background: #19A974;
+}
+
+
+/* Último livro */
+.cardLivro strong {
+    display: block;
+    margin-top: 8px;
+    color: #1B3A5C;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+
+/* Livro mais alugado */
+.cardLivroMais {
+    min-width: 0px;
+}
+
+.livroDestaque {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.livroDestaque i {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1B3A5C;
+    border-radius: 4px;
+    color: #1B3A5C;
+}
+
+.livroDestaque strong {
+    color: #1B3A5C;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+
+/* Tabela de aluguéis */
+.painelAlugueis {
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    border-radius: 6px;
+    overflow: hidden;
+    min-height: 250px;
+}
+
+.cabecalhoTabela {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 10px 12px;
+    border-bottom: 1px solid #BDBDBD;
+    color: #40545C;
+    font-size: 14px;
+}
+
+.cabecalhoTabela span:nth-child(2),
+.cabecalhoTabela span:nth-child(3),
+.cabecalhoTabela span:nth-child(4) {
+    text-align: center;
+}
+
+.aluguelLinha {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 12px;
+    border-bottom: 1px solid #EEEEEE;
+    color: #444;
+    font-size: 13px;
+}
+
+.aluguelLinha:last-child {
+    border-bottom: none;
+}
+
+.aluguelLinha > div:nth-child(2),
+.aluguelLinha > div:nth-child(3),
+.aluguelLinha > div:nth-child(4) {
+    text-align: center;
+}
+
+
+/* Status */
+.statusTenant {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.statusTenant.pendente {
+    background: #F5A623;
+}
+
+.statusTenant.devolvido {
+    background: #19A974;
+}
+
+.statusTenant.atrasado {
+    background: #D9534F;
+}
+
+
+@media (max-width: 900px) {
+
+    .cardsTenant {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cardLivroMais {
+        min-width: 0;
+    }
+}
