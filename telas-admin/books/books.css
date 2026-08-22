@@ -362,3 +362,157 @@ td:nth-child(5) {
 .btnSalvar:hover {
     opacity: 0.9;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+/* Conteúdo do modal */
+.modalConteudo {
+    width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cabeçalho */
+.modalCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modalCabecalho h2 {
+    color: #1B3A5C;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Botão fechar */
+.fecharModal {
+    border: none;
+    background: transparent;
+    color: #666666;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.fecharModal:hover {
+    color: #1B3A5C;
+}
+
+
+/* Formulário */
+
+#formNovoLivro,
+#formLivro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formNovoLivro label,
+#formLivro label {
+    color: #444444;
+    font-size: 13px;
+}
+
+#formNovoLivro input,
+#formNovoLivro select,
+#formLivro input,
+#formLivro select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#formNovoLivro input:focus,
+#formNovoLivro select:focus,
+#formLivro input:focus,
+#formLivro select:focus {
+    border-color: #496987;
+}
+
+#novaObservacaoLivro,
+#observacaoLivro {
+    width: 100%;
+    min-height: 80px;
+
+    padding: 10px;
+
+    resize: vertical;
+
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+
+    outline: none;
+}
+
+#novaObservacaoLivro:focus,
+#observacaoLivro:focus {
+    border-color: #496987;
+}
+
+/* Botões do modal */
+.modalAcoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    height: 35px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    background-color: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnCancelar:hover {
+    background-color: #F4F4F4;
+}
+
+.btnSalvar {
+    background-color: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}

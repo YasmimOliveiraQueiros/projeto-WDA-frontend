@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +9,7 @@
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="books.css">
+
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -34,14 +34,12 @@
                     <i class="fa-solid fa-book-open-reader"></i>
                     Aluguéis
                 </a>
-                
-                <!-- Página adicionada fururamente -->
+
                 <a href="../books/books.html" class="ativo">
                     <i class="fa-solid fa-book"></i>
                     Livros
                 </a>
 
-                <!-- Página adicionada fururamente -->
                 <a href="../publishers/publishers.html">
                     <i class="fa-solid fa-building"></i>
                     Editoras
@@ -104,15 +102,14 @@
                     </div>
 
                 </div>
-                
+
                 <button class="btnNovo" id="btnNovoLivro">
                     + Novo livro
                 </button>
 
             </section>
-            
-            <section class="pesquisa">
 
+            <section class="pesquisa">
                 <input
                     type="text"
                     id="campoBusca"
@@ -123,13 +120,10 @@
                     <option value="disponivel">Disponível</option>
                     <option value="alugado">Alugado</option>
                 </select>
-
             </section>
 
             <section class="tabela">
-
                 <table>
-
                     <thead>
                         <tr>
                             <th>Título</th>
@@ -139,44 +133,123 @@
                             <th>Ação</th>
                         </tr>
                     </thead>
-
                     <tbody id="listaLivros"></tbody>
-
                 </table>
             </section>
 
+            <!-- Modal: Novo livro -->
+            <div class="modal" id="modalNovoLivro">
+
+                <div class="modalConteudo">
+                    <div class="modalCabecalho">
+                        <h2>Novo livro</h2>
+                        <button
+                            type="button"
+                            class="fecharModal"
+                            id="fecharModalNovoLivro">
+                            &times;
+                        </button>
+                    </div>
+
+
+                    <form id="formNovoLivro">
+                        <label for="novoTituloLivro">Título</label>
+
+                        <input
+                            type="text"
+                            id="novoTituloLivro">
+                        <label for="novoAutorLivro">Autor</label>
+
+                        <input type="text"id="novoAutorLivro">
+
+                        <label for="novaEditoraLivro"> Editora</label>
+
+                        <input type="text" id="novaEditoraLivro">
+
+                        <label for="novoStatusLivro"> Status </label>
+
+                        <select id="novoStatusLivro">
+
+                            <option value="disponivel"> Disponível </option>
+
+                            <option value="alugado"> Alugado </option>
+                        </select>
+
+                        <label for="novaObservacaoLivro">
+                            Observações (opcional)
+                        </label>
+                        <textarea id="novaObservacaoLivro"></textarea>
+
+
+                        <div class="modalAcoes">
+                            <button
+                                type="button"
+                                class="btnCancelar"
+                                id="cancelarNovoLivro">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btnSalvar">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Modal: Editar livro -->
             <div class="modal" id="modalLivro">
+
                 <div class="modalConteudo">
 
                     <div class="modalCabecalho">
                         <h2>Editar livro</h2>
 
-                        <button type="button" class="fecharModal" id="fecharModalLivro">
+                        <button
+                            type="button"
+                            class="fecharModal"
+                            id="fecharModalLivro">
                             &times;
-
                         </button>
                     </div>
-                    
+
+
                     <form id="formLivro">
-                        <label for="tituloLivro">Título</label>
+
+                        <label for="tituloLivro"> Título </label>
 
                         <input type="text" id="tituloLivro">
-                        <label for="autorLivro">Autor</label>
+
+                        <label for="autorLivro"> Autor </label>
+
                         <input type="text" id="autorLivro">
-                        <label for="editoraLivro">Editora</label>
+
+                        <label for="editoraLivro"> Editora </label>
+
                         <input type="text" id="editoraLivro">
 
-                        <label for="statusLivroModal">Status</label>
-                        <select id="statusLivroModal">
-                            <option value="disponivel">Disponível</option>
-                            <option value="alugado">Alugado</option>
-                        </select>
-                        
-                        <div class="modalAcoes">
+                        <label for="statusLivroModal"> Status </label>
 
+                        <select id="statusLivroModal">
+                            <option value="disponivel"> Disponível </option>
+
+                            <option value="alugado"> Alugado </option>
+                        </select>
+
+                        <label for="observacaoLivro">
+                            Observações (opcional)
+                        </label>
+                        
+                        <textarea id="observacaoLivro"></textarea>
+
+                        <div class="modalAcoes">
                             <button type="button" class="btnCancelar" id="cancelarLivro">
                                 Cancelar
                             </button>
+
                             <button type="submit" class="btnSalvar">
                                 Salvar
                             </button>
@@ -184,9 +257,8 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 
     <script src="books.js"></script>
 

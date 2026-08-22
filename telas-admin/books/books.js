@@ -1,12 +1,12 @@
 const livros = [
-
     {
         id: 1,
         titulo: "Dom Casmurro",
         autor: "Machado de Assis",
         editora: "Companhia das Letras",
         status: "alugado",
-        vinculo: true
+        vinculo: true,
+        observacao: ""
     },
 
     {
@@ -15,7 +15,8 @@ const livros = [
         autor: "Paulo Coelho",
         editora: "Rocco",
         status: "disponivel",
-        vinculo: false
+        vinculo: false,
+        observacao: ""
     },
 
     {
@@ -24,39 +25,52 @@ const livros = [
         autor: "George Orwell",
         editora: "Record",
         status: "alugado",
-        vinculo: true
+        vinculo: true,
+        observacao: ""
     }
-
 ];
 
 
-const listaLivros = document.getElementById("listaLivros");
 
+/* Elementos da página */
+const listaLivros = document.getElementById("listaLivros");
 const totalDisponiveis = document.getElementById("totalDisponiveis");
 const totalAlugados = document.getElementById("totalAlugados");
 const totalLivros = document.getElementById("totalLivros");
-
 const campoBusca = document.getElementById("campoBusca");
 const filtroStatus = document.getElementById("filtroStatus");
 
+
+/* Modal de editar */
 const modalLivro = document.getElementById("modalLivro");
 const formLivro = document.getElementById("formLivro");
-
 const tituloLivro = document.getElementById("tituloLivro");
 const autorLivro = document.getElementById("autorLivro");
 const editoraLivro = document.getElementById("editoraLivro");
 const statusLivroModal = document.getElementById("statusLivroModal");
-
 const fecharModalLivro = document.getElementById("fecharModalLivro");
 const cancelarLivro = document.getElementById("cancelarLivro");
 
 let livroEditando = null;
 
 
+/* Modal de novo livro */
+const btnNovoLivro = document.getElementById("btnNovoLivro");
+const modalNovoLivro = document.getElementById("modalNovoLivro");
+const formNovoLivro = document.getElementById("formNovoLivro");
+const novoTituloLivro = document.getElementById("novoTituloLivro");
+const novoAutorLivro = document.getElementById("novoAutorLivro");
+const novaEditoraLivro = document.getElementById("novaEditoraLivro");
+const novoStatusLivro = document.getElementById("novoStatusLivro");
+
+const fecharModalNovoLivro =
+    document.getElementById("fecharModalNovoLivro");
+const cancelarNovoLivro =
+    document.getElementById("cancelarNovoLivro");
+
+
 /* Mostra os livros na tabela */
-
 function mostrarLivros(lista) {
-
     listaLivros.innerHTML = "";
 
     lista.forEach(livro => {
@@ -72,29 +86,27 @@ function mostrarLivros(lista) {
 
             <td>
                 <span class="status ${livro.status}">
-                    ${livro.status === "disponivel" ? "Disponível" : "Alugado"}
+                    ${livro.status === "disponivel"
+                        ? "Disponível"
+                        : "Alugado"}
                 </span>
             </td>
 
             <td>
                 <div class="acao">
-
                     <button
                         class="btnEditar"
+                        data-id= "${livro.id}"
                         onclick="editarLivro(${livro.id})">
-
                         <i class="fa-solid fa-pen"></i>
-
                     </button>
 
                     <button
                         class="btnExcluir"
+                        data-id= "${livro.id}"
                         onclick="excluirLivro(${livro.id})">
-
                         <i class="fa-solid fa-trash"></i>
-
                     </button>
-
                 </div>
             </td>
         `;
@@ -103,16 +115,12 @@ function mostrarLivros(lista) {
     });
 }
 
-
 /* Atualiza os cards */
-
 function atualizarCards() {
-
     let disponiveis = 0;
     let alugados = 0;
 
     livros.forEach(livro => {
-
         if (livro.status === "disponivel") {
             disponiveis++;
         }
@@ -120,7 +128,6 @@ function atualizarCards() {
         if (livro.status === "alugado") {
             alugados++;
         }
-
     });
 
     totalDisponiveis.textContent = disponiveis;
@@ -128,14 +135,10 @@ function atualizarCards() {
     totalLivros.textContent = livros.length;
 }
 
-
 /* Busca e filtro */
-
 function filtrarLivros() {
-
     const texto = campoBusca.value.toLowerCase();
     const status = filtroStatus.value;
-
     const resultado = livros.filter(livro => {
 
         const encontrouTexto =
@@ -145,41 +148,46 @@ function filtrarLivros() {
         const encontrouStatus =
             status === "todos" ||
             livro.status === status;
-
         return encontrouTexto && encontrouStatus;
     });
-
     mostrarLivros(resultado);
 }
 
 
-/* Abre o modal para editar */
-
-function editarLivro(id) {
-
+/* Alterar status */
+function alterarStatus(id, novoStatus) {
     const livro = livros.find(livro => livro.id === id);
+    if (!livro) {
+        return;
+    }
 
+    livro.status = novoStatus;
+    atualizarCards();
+    filtrarLivros();
+}
+
+/* Editar livro */
+function editarLivro(id) {
+    const livro = livros.find(livro => livro.id === id);
     if (!livro) {
         return;
     }
 
     livroEditando = livro;
-
     tituloLivro.value = livro.titulo;
     autorLivro.value = livro.autor;
     editoraLivro.value = livro.editora;
     statusLivroModal.value = livro.status;
-
     modalLivro.classList.add("aberto");
+    observacaoLivro.value = livro.observacao;
+    livroEditando.observacao = observacaoLivro.value.trim();
+    novaObservacaoLivro.value = "";
 }
 
 
-/* Salva as alterações */
-
-formLivro.addEventListener("submit", function(event) {
-
+/* Salvar edição */
+formLivro.addEventListener("submit", function (event) {
     event.preventDefault();
-
     if (!livroEditando) {
         return;
     }
@@ -190,49 +198,39 @@ formLivro.addEventListener("submit", function(event) {
     livroEditando.status = statusLivroModal.value;
 
     modalLivro.classList.remove("aberto");
-
     livroEditando = null;
-
     atualizarCards();
     filtrarLivros();
-
     alert("Livro atualizado com sucesso!");
 });
 
 
-/* Fecha o modal */
-
-fecharModalLivro.addEventListener("click", function() {
-
+/* Fechar modal de edição */
+fecharModalLivro.addEventListener("click", function () {
     modalLivro.classList.remove("aberto");
-
     livroEditando = null;
 });
 
 
-cancelarLivro.addEventListener("click", function() {
-
+cancelarLivro.addEventListener("click", function () {
     modalLivro.classList.remove("aberto");
-
     livroEditando = null;
 });
 
 
-/* Exclui o livro */
+/* Excluir livro */
 function excluirLivro(id) {
 
-    const livro = livros.find(livro => livro.id === id);
+    const livro = livros.find(function (livro) {
+        return livro.id === Number(id);
+    });
 
     if (!livro) {
         return;
     }
 
     if (livro.vinculo) {
-
-        alert(
-            "Este livro não pode ser excluído pois possui vínculo com uma editora ou leitor."
-        );
-
+        alert("Este livro não pode ser excluído pois possui vínculo com uma editora ou leitor.");
         return;
     }
 
@@ -242,7 +240,9 @@ function excluirLivro(id) {
         return;
     }
 
-    const indice = livros.findIndex(livro => livro.id === id);
+    const indice = livros.findIndex(function (livro) {
+        return livro.id === Number(id);
+    });
 
     livros.splice(indice, 1);
 
@@ -251,11 +251,87 @@ function excluirLivro(id) {
 }
 
 
+/* Abrir modal de novo livro */
+btnNovoLivro.addEventListener("click", function () {
+    formNovoLivro.reset();
+    novoStatusLivro.value = "disponivel";
+    modalNovoLivro.classList.add("aberto");
+});
+
+
+/* Salvar novo livro */
+formNovoLivro.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const novoLivro = {
+        id: Date.now(),
+        titulo: novoTituloLivro.value.trim(),
+        autor: novoAutorLivro.value.trim(),
+        editora: novaEditoraLivro.value.trim(),
+        status: novoStatusLivro.value,
+        vinculo: false
+    };
+
+    if (
+        novoLivro.titulo === "" ||
+        novoLivro.autor === "" ||
+        novoLivro.editora === ""
+    ) {
+        alert("Preencha todos os campos.");
+        return;
+    }
+
+    livros.push(novoLivro);
+    modalNovoLivro.classList.remove("aberto");
+    formNovoLivro.reset();
+    atualizarCards();
+    filtrarLivros();
+    alert("Livro cadastrado com sucesso!");
+});
+
+/* Fechar modal de novo livro */
+fecharModalNovoLivro.addEventListener("click", function () {
+    modalNovoLivro.classList.remove("aberto");
+    formNovoLivro.reset();
+});
+
+cancelarNovoLivro.addEventListener("click", function () {
+    modalNovoLivro.classList.remove("aberto");
+    formNovoLivro.reset();
+});
+
+
+/* Alteração do status pela tabela */
+document.addEventListener("change", function (event) {
+    if (event.target.classList.contains("statusLivro")) {
+        const id = Number(event.target.dataset.id);
+        const novoStatus = event.target.value;
+        alterarStatus(id, novoStatus);
+    }
+
+});
+
+
 /* Eventos de busca e filtro */
 campoBusca.addEventListener("input", filtrarLivros);
-
 filtroStatus.addEventListener("change", filtrarLivros);
+
 
 /* Inicialização */
 atualizarCards();
 mostrarLivros(livros);
+
+const novaObservacaoLivro =
+    document.getElementById("novaObservacaoLivro");
+
+const observacaoLivro =
+    document.getElementById("observacaoLivro");
+
+const novoLivro = {
+    id: Date.now(),
+    titulo: novoTituloLivro.value.trim(),
+    autor: novoAutorLivro.value.trim(),
+    editora: novaEditoraLivro.value.trim(),
+    status: novoStatusLivro.value,
+    vinculo: false,
+    observacao: novaObservacaoLivro.value.trim()
+};
