@@ -4,10 +4,6 @@
     --cinza:#F4F4F4;
 }
 
-/* =========================
-   ÁREA SUPERIOR
-========================= */
-
 .topo {
     display: flex;
     justify-content: space-between;
@@ -79,9 +75,7 @@
 }
 
 
-/* =========================
-   BOTÃO NOVO ALUGUEL
-========================= */
+/* Botão de novo aluguel */
 
 .btnNovo {
     width: 120px;
@@ -101,9 +95,7 @@
 }
 
 
-/* =========================
-   PESQUISA
-========================= */
+/* Pesquisa */
 
 .pesquisa {
     display: flex;
@@ -142,9 +134,7 @@
 }
 
 
-/* =========================
-   TABELA
-========================= */
+/* Tabela */
 
 .tabela {
     background-color: var(--branco);
@@ -182,9 +172,7 @@ tbody tr:last-child td {
 }
 
 
-/* =========================
-   STATUS
-========================= */
+/* Status */
 
 .status {
     display: inline-block;
@@ -208,9 +196,7 @@ tbody tr:last-child td {
 }
 
 
-/* =========================
-   SELECT DA TABELA
-========================= */
+/* Select da tabela */
 
 td select {
     width: 120px;
@@ -224,4 +210,164 @@ td select {
     cursor: pointer;
 }
 
+/* Modal de novo aluguel */
 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modalConteudo {
+    width: 460px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cabeçalho */
+.modalCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modalCabecalho h2 {
+    color: #1B3A5C;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.fecharModal {
+    border: none;
+    background: transparent;
+    color: #666666;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+/* Formulário */
+#formNovoAluguel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formNovoAluguel label {
+    color: #444444;
+    font-size: 13px;
+}
+
+#formNovoAluguel input,
+#formNovoAluguel select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#formNovoAluguel input:focus,
+#formNovoAluguel select:focus {
+    border-color: #496987;
+}
+
+
+/* Aviso sobre livros */
+.mensagemLivro {
+    margin: 0 0 6px;
+    color: #777777;
+    font-size: 12px;
+}
+
+
+/* Datas */
+.datasAluguel {
+    display: flex;
+    gap: 15px;
+    margin-top: 4px;
+}
+
+.datasAluguel > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* Observações */
+#observacoesAluguel {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    resize: vertical;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#observacoesAluguel:focus {
+    border-color: #496987;
+}
+
+
+/* Botões */
+.modalAcoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    height: 35px;
+    padding: 0 18px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnCancelar:hover {
+    background: #F4F4F4;
+}
+
+.btnSalvar {
+    background: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}
