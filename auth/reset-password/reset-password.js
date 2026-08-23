@@ -1,23 +1,31 @@
 function configurarOlho(idInput, idIcone) {
+
     const input = document.getElementById(idInput);
     const icone = document.getElementById(idIcone);
 
-    if (!input || !icone) return;
+    if (!input || !icone) {
+        return;
+    }
 
-    icone.addEventListener('click', function () {
-        if (input.type === 'password') {
-            input.type = 'text';
-            this.classList.remove('fa-eye-slash');
-            this.classList.add('fa-eye');
+    icone.addEventListener("click", function () {
+
+        if (input.type === "password") {
+
+            input.type = "text";
+            this.src = "../../assets/icons/eye.svg";
+
         } else {
-            input.type = 'password';
-            this.classList.remove('fa-eye');
-            this.classList.add('fa-eye-slash');
+
+            input.type = "password";
+            this.src = "../../assets/icons/eye-slash.svg";
+
         }
+
     });
 }
 
-configurarOlho('senha', 'toggleSenha');
+
+configurarOlho("senha", "toggleSenha");
 configurarOlho('confirmarSenha', 'toggleConfirmarSenha');
 
 const form = document.querySelector("form");

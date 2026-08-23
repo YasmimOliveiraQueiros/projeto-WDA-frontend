@@ -12,16 +12,12 @@ function configurarOlho(idInput, idIcone) {
         if (input.type === "password") {
 
             input.type = "text";
-
-            this.classList.remove("fa-eye");
-            this.classList.add("fa-eye-slash");
+            this.src = "../../assets/icons/eye.svg";
 
         } else {
 
             input.type = "password";
-
-            this.classList.remove("fa-eye-slash");
-            this.classList.add("fa-eye");
+            this.src = "../../assets/icons/eye-slash.svg";
 
         }
 
