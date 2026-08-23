@@ -22,6 +22,7 @@ function configurarOlho(idInput, idIcone) {
 
             this.classList.remove("fa-eye-slash");
             this.classList.add("fa-eye");
+
         }
 
     });
@@ -32,10 +33,11 @@ configurarOlho("senha", "toggleSenha");
 
 /* Usuários de teste */
 const usuarios = [
+
     {
         id: 1,
         nome: "Levy Fernandes",
-        email: "admin@altis.com",
+        email: "admin@email.com",
         senha: "123456",
         role: "admin"
     },
@@ -43,7 +45,7 @@ const usuarios = [
     {
         id: 2,
         nome: "Ana Fernandes",
-        email: "ana@altis.com",
+        email: "ana@email.com",
         senha: "123456",
         role: "tenant"
     }
@@ -59,11 +61,11 @@ form.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
     const senha = document.getElementById("senha").value;
 
     const usuario = usuarios.find(usuario =>
-        usuario.email === email &&
+        usuario.email.toLowerCase() === email &&
         usuario.senha === senha
     );
 
@@ -80,7 +82,9 @@ form.addEventListener("submit", function (event) {
         JSON.stringify(usuario)
     );
 
-    if (usuario.tipo === "admin") {
+
+    /* Redirecionamento */
+    if (usuario.role === "admin") {
 
         window.location.replace(
             "../../loans/telas-admin/admin/dashboard/dashboard.html"
@@ -89,32 +93,26 @@ form.addEventListener("submit", function (event) {
         return;
     }
 
-    if (usuario.tipo === "tenant") {
+
+    if (usuario.role === "tenant") {
 
         window.location.replace(
             "../../loans/tenants/dashboard/dashboard.html"
         );
 
+        return;
     }
 
 });
 
 
 /* Limpa mensagem de erro */
-document.getElementById("email").addEventListener(
-    "input",
-    function () {
-
+document.getElementById("email").addEventListener("input", function () {
         mensagemErro.textContent = "";
-
     }
 );
 
-document.getElementById("senha").addEventListener(
-    "input",
-    function () {
-
+document.getElementById("senha").addEventListener("input", function () {
         mensagemErro.textContent = "";
-
     }
 );
