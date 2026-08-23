@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
 :root {
     --azul-escuro: #1B3A5C;
     --azul-claro: #496987;
@@ -236,9 +234,10 @@ td:nth-child(5) {
     background: #F4F4F4;
 }
 
-.btnEditar i,
-.btnExcluir i {
-    font-size: 13px;
+.btnEditar .icon-acao,
+.btnExcluir .icon-acao {
+    width: 16px;
+    height: 16px;
 }
 
 

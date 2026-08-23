@@ -90,15 +90,19 @@ function mostrarEditoras(lista) {
 
             <td>
                 <div class="acao">
-
-                    <button class="btnEditar" onclick="editarEditora(${editora.id})">
-                        <i class="fa-solid fa-pen"></i>
+                    <button
+                        class="btnEditar"
+                        data-id="${editora.id}"
+                        onclick="editarEditora(${editora.id})">
+                        <img src="../../../assets/icons/edit.svg" alt="Editar" class="icon-acao">
                     </button>
 
-                    <button class="btnExcluir" onclick="excluirEditora(${editora.id})">
-                        <i class="fa-solid fa-trash"></i>
+                    <button
+                        class="btnExcluir"
+                        data-id="${editora.id}"
+                        onclick="excluirEditora(${editora.id})">
+                        <img src="../../../assets/icons/delete.svg" alt="Excluir" class="icon-acao">
                     </button>
-
                 </div>
             </td>
         `;

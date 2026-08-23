@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
     <link rel="stylesheet" href="dashboard.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body data-tipo-usuario="admin">
@@ -23,35 +20,35 @@
 
         <aside class="sidebar">
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
 
             <nav>
-
                 <a href="dashboard.html" class="ativo">
-                    <i class="fa-solid fa-chart-column"></i>
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
                     Dashboard
                 </a>
 
                 <a href="../loans/loans.html">
-                    <i class="fa-solid fa-book-open-reader"></i>
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
                     Aluguéis
                 </a>
 
                 <a href="../books/books.html">
-                    <i class="fa-solid fa-book"></i>
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
                     Livros
                 </a>
 
                 <a href="../publishers/publishers.html">
-                    <i class="fa-solid fa-building"></i>
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
                     Editoras
                 </a>
 
                 <a href="../users/users.html">
-                    <i class="fa-solid fa-users"></i>
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
                     Usuários
                 </a>
-
             </nav>
 
             <span class="admin">Admin</span>
@@ -235,6 +232,7 @@
     </div>
 
     <script src="dashboard.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
     <script src="../css/profile-menu/profile-menu.js"></script>
 
 </body>

@@ -96,16 +96,16 @@ function mostrarLivros(lista) {
                 <div class="acao">
                     <button
                         class="btnEditar"
-                        data-id= "${livro.id}"
+                        data-id="${livro.id}"
                         onclick="editarLivro(${livro.id})">
-                        <i class="fa-solid fa-pen"></i>
+                        <img src="../../../assets/icons/edit.svg" alt="Editar" class="icon-acao">
                     </button>
 
                     <button
                         class="btnExcluir"
-                        data-id= "${livro.id}"
+                        data-id="${livro.id}"
                         onclick="excluirLivro(${livro.id})">
-                        <i class="fa-solid fa-trash"></i>
+                        <img src="../../../assets/icons/delete.svg" alt="Excluir" class="icon-acao">
                     </button>
                 </div>
             </td>

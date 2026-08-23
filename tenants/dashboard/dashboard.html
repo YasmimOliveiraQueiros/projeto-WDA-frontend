@@ -13,22 +13,22 @@
     <link rel="stylesheet" href="../../telas-admin/css/profile-menu/profile-menu.css">
     
     <link rel="stylesheet" href="dashboard.css">
-
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body data-tipo-usuario="tenant">
 
     <div class="container">
 
-        <!-- Sidebar global -->
-        <aside class="sidebar">
-            <div class="logo"></div>
+         <aside class="sidebar">
+ 
+            <div class="logo">
+                <img src="../../assets/icons/logo-book.svg" alt="Dashboard" class="logo-icon">
+            </div>
 
             <nav>
 
                 <a href="dashboard.html" class="ativo">
-                    <i class="fa-solid fa-chart-column"></i>
+                    <img src="../../assets/icons/dashboard.svg" alt="Altiis+ Lab" class="icon-nav">
                     Dashboard
                 </a>
 
@@ -69,13 +69,11 @@
                 <section class="cardsTenant">
 
                     <div class="cardTenant">
-                        <span class="alugados"></span>
-
-                        <p>Alugados</p>
-
-                        <h2 id="totalAlugados">
-                            3
-                        </h2>
+                        <div class="cardTenantTop">
+                            <span class="alugados"></span>
+                            <p>Alugados</p>
+                        </div>
+                        <h2 id="totalAlugados">3</h2>
                     </div>
 
 
@@ -92,7 +90,7 @@
                         <p>Livro mais alugado</p>
 
                         <div class="livroDestaque">
-                            <i class="fa-solid fa-star"></i>
+                            <img src="../../assets/icons/star.svg" alt="Livro em destaque" class="logo-icon">
 
                             <strong id="livroMaisAlugado">
                                 1984 - George Orwell
@@ -120,6 +118,7 @@
     </div>
 
     <script src="dashboard.js"></script>
+    <script src="../../telas-admin/css/profile-menu/js/i18.js"></script>
     <script src="../../telas-admin/css/profile-menu/profile-menu.js"></script>
 
 </body>

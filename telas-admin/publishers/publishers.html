@@ -12,49 +12,50 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
     <link rel="stylesheet" href="publishers.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body data-tipo-usuario="admin">
 
     <div class="container">
 
-        <div class="sidebar">
+        <aside class="sidebar">
 
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
 
             <nav>
+
                 <a href="../dashboard/dashboard.html">
-                    <i class="fa-solid fa-chart-column"></i>
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
                     Dashboard
                 </a>
 
                 <a href="../loans/loans.html">
-                    <i class="fa-solid fa-book-open-reader"></i>
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
                     Aluguéis
                 </a>
 
                 <a href="../books/books.html">
-                    <i class="fa-solid fa-book"></i>
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
                     Livros
                 </a>
 
                 <a href="publishers.html" class="ativo">
-                    <i class="fa-solid fa-building"></i>
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
                     Editoras
                 </a>
 
                 <a href="../users/users.html">
-                    <i class="fa-solid fa-users"></i>
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
                     Usuários
                 </a>
+
             </nav>
 
             <span class="admin">Admin</span>
 
-        </div>
+        </aside>
 
         <div class="content">
 
@@ -133,7 +134,7 @@
             </main>
 
 
-            <!-- Modal de edição -->
+            <!-- Modal: Editar editora -->
             <div class="modal" id="modalEditora">
 
                 <div class="modalConteudo">
@@ -241,15 +242,15 @@
                     </form>
                 </div>
             </div>
-            
+
             <!-- Modal: Nova editora -->
-             <div class="modal" id="modalNovaEditora">
+            <div class="modal" id="modalNovaEditora">
 
                 <div class="modalConteudo">
 
                     <div class="modalCabecalho">
                         <h2>Nova editora</h2>
-                        
+
                         <button
                         type="button"
                         class="fecharModal"
@@ -257,14 +258,14 @@
                         &times;
                         </button>
                     </div>
-                    
+
                     <form id="formNovaEditora">
-                        
+
                         <label for="novoNomeEditora">
                             Nome da editora
                         </label>
-                        
-                        <input 
+
+                        <input
                         type="text"
                         id="novoNomeEditora"
                         placeholder="Nome da editora">
@@ -281,7 +282,7 @@
                         <label for="novoCnpjEditora">
                             CNPJ
                         </label>
-                        
+
                         <input
                         type="text"
                         id="novoCnpjEditora"
@@ -309,7 +310,7 @@
                         <label for="novoStatusEditora">
                             Status
                         </label>
-                        
+
                         <select id="novoStatusEditora">
                             <option value="ativa">
                                 Ativa
@@ -320,82 +321,32 @@
                             </option>
                         </select>
 
-                        
+
                         <div class="modalAcoes">
-                            
+
                             <button
                             type="button"
                             class="btnCancelar"
                             id="cancelarNovaEditora">
                             Cancelar
                             </button>
-                            
+
                             <button
                             type="submit"
                             class="btnSalvar">
                             Salvar
                             </button>
-                        
+
                         </div>
                     </form>
                 </div>
             </div>
-            
-            <!-- Modal: Editar editora -->
-             <div class="modal" id="modalEditora">
 
-                <div class="modalConteudo">
-
-                    <div class="modalCabecalho">
-                        <h2>Editar editora</h2>
-
-                        <button
-                        type="button"
-                        class="fecharModal"
-                        id="fecharModalEditora">
-                        &times;
-                        </button>
-                    </div>
-                    
-                    <form id="formEditora">
-                        
-                        <label for="nomeEditora">
-                            Nome da editora
-                        </label>
-
-
-                        <input
-                        type="text"
-                        id="nomeEditora">
-                        
-                        <label for="observacaoEditora">
-                            Observações (opcional)
-                        </label>
-
-                        <textarea id="observacaoEditora"></textarea>
-                        
-                        <div class="modalAcoes">
-                            
-                            <button
-                            type="button"
-                            class="btnCancelar"
-                            id="cancelarEditora">
-                            Cancelar
-                            </button>
-
-                            <button
-                             ype="submit"
-                            class="btnSalvar">
-                            Salvar
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 
     <script src="publishers.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
     <script src="../css/profile-menu/profile-menu.js"></script>
 
 </body>

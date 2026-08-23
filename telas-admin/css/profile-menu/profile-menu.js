@@ -56,6 +56,12 @@ if (perfil && avatar) {
     document.body.appendChild(menu);
 
 
+    /* Traduz os textos recém-criados do menu com o idioma já salvo */
+    if (typeof traduzirPagina === "function") {
+        traduzirPagina(localStorage.getItem("idioma") || "pt");
+    }
+
+
     /* Abrir menu */
 
     avatar.addEventListener("click", function (event) {
@@ -105,7 +111,7 @@ if (perfil && avatar) {
     });
 
 
-    /* Idiomas */
+    /* Idiomas — agora traduz a página inteira de verdade */
 
     document
         .querySelectorAll("[data-idioma]")
@@ -115,7 +121,11 @@ if (perfil && avatar) {
 
                 const idioma = botao.dataset.idioma;
 
-                localStorage.setItem("idioma", idioma);
+                if (typeof traduzirPagina === "function") {
+                    traduzirPagina(idioma);
+                } else {
+                    localStorage.setItem("idioma", idioma);
+                }
 
                 submenuIdioma.classList.remove("aberto");
                 menu.classList.remove("aberto");
