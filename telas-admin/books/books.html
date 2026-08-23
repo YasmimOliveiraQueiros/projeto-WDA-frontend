@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros - Altis+ Biblioteca</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
+
+    <link rel="stylesheet" href="books.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
+
+            <nav>
+                <a href="../dashboard/dashboard.html">
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
+                    Dashboard
+                </a>
+
+                <a href="../loans/loans.html">
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
+                    Aluguéis
+                </a>
+
+                <a href="../books/books.html" class="ativo">
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
+                    Livros
+                </a>
+
+                <a href="../publishers/publishers.html">
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
+                    Usuários
+                </a>
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </aside>
+
+
+        <main class="content">
+
+            <header>
+
+                <div class="titulo">
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de gestão de livros</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        LF
+                    </div>
+
+                    <span>Levy Fernandes</span>
+
+                </div>
+
+            </header>
+
+
+            <section class="topo">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <span class="disponiveis"></span>
+                        <p>Disponíveis</p>
+                        <h2 id="totalDisponiveis">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="Alugados"></span>
+                        <p>Alugados</p>
+                        <h2 id="totalAlugados">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="total"></span>
+                        <p>Total</p>
+                        <h2 id="totalLivros">0</h2>
+                    </div>
+
+                </div>
+
+                <button class="btnNovo" id="btnNovoLivro">
+                    + Novo livro
+                </button>
+
+            </section>
+
+            <section class="pesquisa">
+                <input
+                    type="text"
+                    id="campoBusca"
+                    placeholder="Buscar por título ou autor">
+
+                <select id="filtroStatus">
+                    <option value="todos">Todos os status</option>
+                    <option value="disponivel">Disponível</option>
+                    <option value="alugado">Alugado</option>
+                </select>
+            </section>
+
+            <section class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Editora</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaLivros"></tbody>
+                </table>
+            </section>
+
+            <!-- Modal: Novo livro -->
+            <div class="modal" id="modalNovoLivro">
+
+                <div class="modalConteudo">
+                    <div class="modalCabecalho">
+                        <h2>Novo livro</h2>
+                        <button
+                            type="button"
+                            class="fecharModal"
+                            id="fecharModalNovoLivro">
+                            &times;
+                        </button>
+                    </div>
+
+
+                    <form id="formNovoLivro">
+                        <label for="novoTituloLivro">Título</label>
+
+                        <input
+                            type="text"
+                            id="novoTituloLivro">
+                        <label for="novoAutorLivro">Autor</label>
+
+                        <input type="text"id="novoAutorLivro">
+
+                        <label for="novaEditoraLivro"> Editora</label>
+
+                        <input type="text" id="novaEditoraLivro">
+
+                        <label for="novoStatusLivro"> Status </label>
+
+                        <select id="novoStatusLivro">
+
+                            <option value="disponivel"> Disponível </option>
+
+                            <option value="alugado"> Alugado </option>
+                        </select>
+
+                        <label for="novaObservacaoLivro">
+                            Observações (opcional)
+                        </label>
+                        <textarea id="novaObservacaoLivro"></textarea>
+
+
+                        <div class="modalAcoes">
+                            <button
+                                type="button"
+                                class="btnCancelar"
+                                id="cancelarNovoLivro">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btnSalvar">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Modal: Editar livro -->
+            <div class="modal" id="modalLivro">
+
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Editar livro</h2>
+
+                        <button
+                            type="button"
+                            class="fecharModal"
+                            id="fecharModalLivro">
+                            &times;
+                        </button>
+                    </div>
+
+
+                    <form id="formLivro">
+
+                        <label for="tituloLivro"> Título </label>
+
+                        <input type="text" id="tituloLivro">
+
+                        <label for="autorLivro"> Autor </label>
+
+                        <input type="text" id="autorLivro">
+
+                        <label for="editoraLivro"> Editora </label>
+
+                        <input type="text" id="editoraLivro">
+
+                        <label for="statusLivroModal"> Status </label>
+
+                        <select id="statusLivroModal">
+                            <option value="disponivel"> Disponível </option>
+
+                            <option value="alugado"> Alugado </option>
+                        </select>
+
+                        <label for="observacaoLivro">
+                            Observações (opcional)
+                        </label>
+                        
+                        <textarea id="observacaoLivro"></textarea>
+
+                        <div class="modalAcoes">
+                            <button type="button" class="btnCancelar" id="cancelarLivro">
+                                Cancelar
+                            </button>
+
+                            <button type="submit" class="btnSalvar">
+                                Salvar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="books.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
+    <script src="../css/profile-menu/profile-menu.js"></script>
+
+</body>
+
+</html>

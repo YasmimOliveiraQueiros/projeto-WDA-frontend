@@ -1,0 +1,373 @@
+:root{
+    --azul-escuro:#1B3A5C;
+    --branco:#FFFFFF;
+    --cinza:#F4F4F4;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.cards {
+    display: flex;
+    grid-template-columns: repeat(2, 115px);
+    gap: 15px;
+}
+
+.card {
+    width: 115px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    border-radius: 6px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.card p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+}
+
+.pendente {
+    background: #F5A623;
+}
+
+.atrasado {
+    background: #D9534F;
+}
+
+.devolvido {
+    background: #5CB85C;
+}
+
+.total {
+    background: #3A78D6;
+}
+
+.card p {
+    margin: 0;
+    font-size: 13px;
+    color: #444;
+}
+
+.card h2 {
+    margin: 6px 0 0;
+    color: #1B3A5C;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* Botão de novo aluguel */
+
+.btnNovo {
+    width: 120px;
+    height: 80px;
+    border: none;
+    border-radius: 6px;
+    background: #1B3A5C;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.btnNovo:hover {
+    opacity: 0.9;
+}
+
+
+/* Pesquisa */
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.pesquisa input {
+    flex: 1;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #1B3A5C;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.pesquisa input:focus {
+    border-color: #1B3A5C;
+}
+
+.pesquisa select {
+    width: 180px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 6px;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* Tabela */
+
+.tabela {
+    background-color: var(--branco);
+    border: 1px solid var(--azul-escuro);
+    border-radius: 6px;
+    padding: 0 4px;
+    min-height: 250px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #FAFAFA;
+}
+
+th {
+    text-align: left;
+    color: var(--azul-escuro);
+    padding: 10px;
+    border-bottom: 1px solid #BDBDBD;
+    font-size: 14px;
+}
+
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 13px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Status */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status.pendente {
+    background: #F5A623;
+}
+
+.status.devolvido {
+    background: #5CB85C;
+}
+
+.status.devolvido.c-a {
+    background: #D9534F;
+}
+
+
+/* Select da tabela */
+
+td select {
+    width: 120px;
+    height: 32px;
+    padding: 0 8px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Modal de novo aluguel */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modalConteudo {
+    width: 460px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cabeçalho */
+.modalCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modalCabecalho h2 {
+    color: #1B3A5C;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.fecharModal {
+    border: none;
+    background: transparent;
+    color: #666666;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+/* Formulário */
+#formNovoAluguel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formNovoAluguel label {
+    color: #444444;
+    font-size: 13px;
+}
+
+#formNovoAluguel input,
+#formNovoAluguel select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#formNovoAluguel input:focus,
+#formNovoAluguel select:focus {
+    border-color: #496987;
+}
+
+
+/* Aviso sobre livros */
+.mensagemLivro {
+    margin: 0 0 6px;
+    color: #777777;
+    font-size: 12px;
+}
+
+
+/* Datas */
+.datasAluguel {
+    display: flex;
+    gap: 15px;
+    margin-top: 4px;
+}
+
+.datasAluguel > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* Observações */
+#observacoesAluguel {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    resize: vertical;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#observacoesAluguel:focus {
+    border-color: #496987;
+}
+
+
+/* Botões */
+.modalAcoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    height: 35px;
+    padding: 0 18px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnCancelar:hover {
+    background: #F4F4F4;
+}
+
+.btnSalvar {
+    background: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}

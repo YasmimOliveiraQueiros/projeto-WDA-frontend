@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Altis+ Biblioteca</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body data-tipo-usuario="admin">
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
+
+            <nav>
+                <a href="dashboard.html" class="ativo">
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
+                    Dashboard
+                </a>
+
+                <a href="../loans/loans.html">
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
+                    Aluguéis
+                </a>
+
+                <a href="../books/books.html">
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
+                    Livros
+                </a>
+
+                <a href="../publishers/publishers.html">
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
+                    Usuários
+                </a>
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </aside>
+
+
+        <div class="content">
+
+            <header>
+
+                <div class="titulo">
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Visão geral do sistema</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        LF
+                    </div>
+
+                    <span>Levy Fernandes</span>
+
+                </div>
+
+            </header>
+
+
+            <section class="dashboard">
+
+                <!-- Indicadores -->
+                <div class="indicadores">
+
+                    <div class="indicador">
+                        <span class="livros"></span>
+                        <p>Livros</p>
+                        <h2 id="totalLivros">3</h2>
+                    </div>
+
+                    <div class="indicador">
+                        <span class="editoras"></span>
+                        <p>Editoras</p>
+                        <h2 id="totalEditoras">3</h2>
+                    </div>
+
+                    <div class="indicador">
+                        <span class="alugados"></span>
+                        <p>Alugados</p>
+                        <h2 id="totalAlugados">10</h2>
+                    </div>
+
+                    <div class="indicador">
+                        <span class="usuarios"></span>
+                        <p>Usuários</p>
+                        <h2 id="totalUsuarios">3</h2>
+                    </div>
+
+                    <div class="indicador">
+                        <span class="pendentes"></span>
+                        <p>Pendentes</p>
+                        <h2 id="totalPendentes">2</h2>
+                    </div>
+
+                    <div class="indicador">
+                        <span class="atrasados"></span>
+                        <p>Atrasados</p>
+                        <h2 id="totalAtrasados">5</h2>
+                    </div>
+                </div>
+
+
+            <!-- Painéis centrais -->
+                <div class="painelSuperior">
+                    
+                    <!-- Empréstimos por mês -->
+                     <section class="painel">
+                        <div class="painelTitulo">
+                            <h3>Empréstimos por mês</h3>
+                        </div>
+
+                        <div class="grafico">
+
+                            <div class="mes">
+                                <div class="barra" style="height: 30%;"></div>
+                                <span>Mai</span>
+                            </div>
+
+                            <div class="mes">
+                                <div class="barra" style="height: 45%;"></div>
+                                <span>Jun</span>
+                            </div>
+
+                            <div class="mes">
+                                <div class="barra" style="height: 70%;"></div>
+                                <span>Jul</span>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- Livros por status -->
+                    <section class="painel">
+
+                        <div class="painelTitulo">
+                            <h3>Livros por status</h3>
+                        </div>
+
+                        <div class="statusDashboardItem">
+
+                            <div class="statusDashboardTopo">
+                                <span>Disponíveis</span>
+                                <strong id="livrosDisponiveis">1</strong>
+                            </div>
+
+                            <div class="barraStatus">
+                                <span class="barraDisponivel"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="statusDashboardItem">
+                            <div class="statusDashboardTopo">
+                                <span>Alugados</span>
+                                <strong id="livrosAlugados">2</strong>
+                            </div>
+
+                            <div class="barraStatus">
+                                <span class="barraAlugado"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="statusDashboardItem">
+
+        
+                        <div class="statusDashboardTopo">
+                            <span>Pendentes</span>
+                            <strong id="livrosPendentes">1</strong>
+                        </div>
+                        
+                        <div class="barraStatus">
+                            <span class="barraPendente"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+                <!-- Empréstimos recentes -->
+                <section class="painel recentes">
+
+                    <div class="painelTitulo">
+                        <h3>Empréstimos recentes</h3>
+
+                        <a href="../loans/loans.html">
+                            Ver todos
+                        </a>
+
+                    </div>
+
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Livro</th>
+                                <th>Locatário</th>
+                                <th>Devolução</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="emprestimosRecentes"></tbody>
+                    </table>
+
+                </section>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
+    <script src="../css/profile-menu/profile-menu.js"></script>
+
+</body>
+
+</html>

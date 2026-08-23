@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguéis - Altis Biblioteca</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
+    
+    <link rel="stylesheet" href="loans.css">
+
+</head>
+
+<body data-tipo-usuario="admin">
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
+
+            <nav>
+
+                <a href="../dashboard/dashboard.html">
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
+                    Dashboard
+                </a>
+
+                <a href="loans.html" class="ativo">
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
+                    Aluguéis
+                </a>
+
+                <a href="../books/books.html">
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
+                    Livros
+                </a>
+
+                <a href="../publishers/publishers.html">
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
+                    Usuários
+                </a>
+
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </aside>
+
+
+        <div class="content">
+
+            <header>
+
+                <div>
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de empréstimos de livros</p>
+                </div>
+
+                <div class="perfil">
+                    <div class="avatar">LF</div>
+                    <span>Levy Fernandes</span>
+                </div>
+
+            </header>
+
+
+            <div class="topo">
+
+                <div class="cards">
+
+                    <div class="card">
+                        <p><span class="pendente"></span>Pendentes</p>
+                        <h2 id="totalPendentes">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <p><span class="atrasado"></span>Atrasados</p>
+                        <h2 id="totalAtrasados">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <p><span class="devolvido"></span>Devolvidos</p>
+                        <h2 id="totalDevolvidos">0</h2>
+                    </div>
+
+                    <div class="card">
+                        <p><span class="total"></span>Total</p>
+                        <h2 id="totalGeral">0</h2>
+                    </div>
+
+                </div>
+
+                <button class="btnNovo" id="btnNovoAluguel">
+                    + Novo aluguel
+                </button>
+
+            </div>
+
+
+            <div class="pesquisa">
+
+                <input type="text" placeholder="Buscar por locatário ou livro">
+
+                <select id="filtroStatus">
+                    <option value="todos">Todos os status</option>
+                    <option value="pendente">Pendente</option>
+                    <option value="atrasado">Atrasado</option>
+                    <option value="devolvido">Devolvido</option>
+                </select>
+
+            </div>
+
+            <div class="tabela">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Locatário</th>
+                            <th>Livro</th>
+                            <th>Aluguel</th>
+                            <th>Devolução</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <!-- Anna -->
+
+                        <tr>
+
+                            <td>Anna Silva</td>
+                            <td>Dom Casmurro</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status atrasado">
+                                    Devolvido C/A
+                                </span>
+                            </td>
+
+                            <td>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
+                                </select>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Fulano -->
+
+                        <tr>
+
+                            <td>Fulano S.</td>
+                            <td>O Alquimista</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status devolvido">
+                                    Devolvido
+                                </span>
+                            </td>
+
+                            <td>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
+                                </select>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Ciclano -->
+
+                        <tr>
+
+                            <td>Ciclano</td>
+                            <td>O Alquimista</td>
+                            <td>01/07</td>
+                            <td>16/07</td>
+
+                            <td>
+                                <span class="status pendente">
+                                    Pendente
+                                </span>
+                            </td>
+
+                            <td>
+                                <select class="acaoStatus">
+                                    <option value="devolvido">Devolvido</option>
+                                    <option value="pendente">Pendente</option>
+                                    <option value="atrasado">Devolvido C/A</option>
+                                </select>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal: Novo aluguel -->
+            <div class="modal" id="modalNovoAluguel">
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Novo aluguel</h2>
+
+                        <button
+                        type="button"
+                        class="fecharModal"
+                        id="fecharModalNovoAluguel">
+                        &times;
+                        </button>
+                    </div>
+
+                    <form id="formNovoAluguel">
+                        <label for="locatarioAluguel">
+                            Locatário
+                        </label>
+
+                        <input
+                        type="text"
+                        id="locatarioAluguel"
+                        placeholder="Nome do locatário">
+
+
+                        <label for="livroAluguel">
+                            Livro
+                        </label>
+
+                        <select id="livroAluguel">
+                            <option value="">
+                                Selecione o livro
+                            </option>
+                        </select>
+
+                        <p class="mensagemLivro">
+                            Livros já alugados não aparecem na lista
+                        </p>
+
+                        <div class="datasAluguel">
+                            <div>
+
+                                <label for="dataAluguel">
+                                    Data do aluguel
+                                </label>
+
+                                <input
+                                type="date"
+                                id="dataAluguel">
+
+                            </div>
+
+
+                            <div>
+
+                                <label for="dataDevolucao">
+                                    Data de devolução
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="dataDevolucao">
+
+                            </div>
+
+                        </div>
+
+
+                        <label for="observacoesAluguel">
+                            Observações (opcional)
+                        </label>
+
+                        <textarea
+                            id="observacoesAluguel"></textarea>
+
+
+                        <div class="modalAcoes">
+
+                            <button
+                                type="submit"
+                                class="btnSalvar">
+                                Salvar
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btnCancelar"
+                                id="cancelarNovoAluguel">
+                                Cancelar
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="loans.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
+    <script src="../css/profile-menu/profile-menu.js"></script>
+
+</body>
+
+</html>

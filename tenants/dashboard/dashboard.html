@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Locatário - Altis+ Biblioteca</title>
+
+    <link rel="stylesheet" href="../../telas-admin/css/global.css">
+    <link rel="stylesheet" href="../../telas-admin/css/sidebar.css">
+    <link rel="stylesheet" href="../../telas-admin/css/header.css">
+    <link rel="stylesheet" href="../../telas-admin/css/profile-menu/profile-menu.css">
+    
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body data-tipo-usuario="tenant">
+
+    <div class="container">
+
+         <aside class="sidebar">
+ 
+            <div class="logo">
+                <img src="../../assets/icons/logo-book.svg" alt="Dashboard" class="logo-icon">
+            </div>
+
+            <nav>
+
+                <a href="dashboard.html" class="ativo">
+                    <img src="../../assets/icons/dashboard.svg" alt="Altiis+ Lab" class="icon-nav">
+                    Dashboard
+                </a>
+
+            </nav>
+
+            <span class="admin">Ana Fernandes</span>
+
+        </aside>
+
+
+        <div class="content">
+
+            <!-- Header -->
+            <header>
+
+                <div class="titulo">
+                    <h1>Olá Ana</h1>
+                    <p>Seu painel de leitura</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        AF
+                    </div>
+
+                    <span>Ana Fernandes</span>
+
+                </div>
+
+            </header>
+
+
+            <!-- Conteúdo -->
+            <main class="tenantDashboard">
+
+                <!-- Cards -->
+                <section class="cardsTenant">
+
+                    <div class="cardTenant">
+                        <div class="cardTenantTop">
+                            <span class="alugados"></span>
+                            <p>Alugados</p>
+                        </div>
+                        <h2 id="totalAlugados">3</h2>
+                    </div>
+
+
+                    <div class="cardTenant cardLivro">
+                        <p>Último livro alugado</p>
+
+                        <strong id="ultimoLivro">
+                            Dom Casmurro
+                        </strong>
+                    </div>
+
+
+                    <div class="cardTenant cardLivroMais">
+                        <p>Livro mais alugado</p>
+
+                        <div class="livroDestaque">
+                            <img src="../../assets/icons/star.svg" alt="Livro em destaque" class="logo-icon">
+
+                            <strong id="livroMaisAlugado">
+                                1984 - George Orwell
+                            </strong>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Meus aluguéis -->
+                <section class="painelAlugueis">
+                    
+                    <div class="cabecalhoTabela">
+                        <span>Meus aluguéis</span>
+                        <span>Aluguel</span>
+                        <span>Devolução</span>
+                        <span>Status</span>
+                    </div>
+
+                    <div id="listaAlugueis"></div>
+                </section>
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="../../telas-admin/css/profile-menu/js/i18.js"></script>
+    <script src="../../telas-admin/css/profile-menu/profile-menu.js"></script>
+
+</body>
+
+</html>

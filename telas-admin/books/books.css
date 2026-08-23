@@ -1,0 +1,517 @@
+:root {
+    --azul-escuro: #1B3A5C;
+    --azul-claro: #496987;
+    --branco: #FFFFFF;
+    --cinza: #F5F5F5;
+}
+
+
+/* Área superior */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: flex;
+    gap: 15px;
+}
+
+.card {
+    width: 115px;
+    height: 80px;
+    background-color: var(--branco);
+    border: 1px solid var(--azul-escuro);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.card span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.card p {
+    display: inline;
+    color: var(--azul-escuro);
+    font-size: 13px;
+}
+
+.card h2 {
+    margin-top: 8px;
+    color: var(--azul-escuro);
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/* Cores dos cards */
+.disponiveis {
+    background-color: #4CAF50;
+}
+
+.Alugados {
+    background-color: #E94B4B;
+}
+
+.total {
+    background-color: var(--azul-escuro);
+}
+
+
+/* Pesquisa */
+.pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.pesquisa input {
+    flex: 1;
+    height: 38px;
+    padding: 12px;
+    border: 1px solid var(--azul-escuro);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.pesquisa input:focus {
+    border-color: var(--azul-escuro);
+}
+
+.pesquisa select {
+    width: 180px;
+    height: 38px;
+    padding: 0 10px;
+    border: 1px solid var(--azul-escuro);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: var(--branco);
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* Tabela */
+.tabela {
+    width: 100%;
+    background-color: var(--branco);
+    border: 1px solid var(--azul-escuro);
+    border-radius: 6px;
+    padding: 0 4px;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    color: var(--azul-escuro);
+    padding: 10px;
+    border-bottom: 1px solid #BDBDBD;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+td {
+    padding: 8px 10px;
+    color: #444;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 13px;
+}
+
+th:nth-child(1) {
+    width: 25%;
+}
+
+th:nth-child(2) {
+    width: 25%;
+}
+
+th:nth-child(3) {
+    width: 18%;
+}
+
+th:nth-child(4) {
+    width: 15%;
+    text-align: center;
+}
+
+th:nth-child(5) {
+    width: 17%;
+    text-align: center;
+}
+
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: center;
+}
+
+
+
+/* Status */
+.statusAcao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status {
+    display: inline-block;
+    width: 78px;
+    color: var(--branco);
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.status.disponivel {
+    background-color: #19A974;
+}
+
+.status.alugado {
+    background-color: #E94B4B;
+}
+
+
+/* Select do status */
+.statusLivro {
+    display: flex;
+    width: 100px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid var(--azul-escuro);
+    border-radius: 5px;
+    background: var(--branco);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+
+/* Ações */
+.acao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btnEditar,
+.btnExcluir {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: var(--branco);
+    border: 1px solid var(--azul-escuro);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnEditar:hover,
+.btnExcluir:hover {
+    background: #F4F4F4;
+}
+
+.btnEditar .icon-acao,
+.btnExcluir .icon-acao {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* Botão novo livro */
+.btnNovo {
+    width: 130px;
+    height: 80px;
+    border: none;
+    border-radius: 6px;
+    background: var(--azul-escuro);
+    color: var(--branco);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modalConteudo {
+    width: 400px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalCabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modalCabecalho h2 {
+    color: #1B3A5C;
+    font-size: 20px;
+}
+
+.fecharModal {
+    border: none;
+    background: none;
+    font-size: 26px;
+    color: #666;
+    cursor: pointer;
+}
+
+#formLivro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formLivro label {
+    color: #444;
+    font-size: 13px;
+}
+
+#formLivro input,
+#formLivro select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background: var(--branco);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.modalAcoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    height: 35px;
+    padding: 0 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.btnCancelar {
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnSalvar {
+    background: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnCancelar:hover {
+    background: #F4F4F4;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+/* Conteúdo do modal */
+.modalConteudo {
+    width: 400px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Cabeçalho */
+.modalCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.modalCabecalho h2 {
+    color: #1B3A5C;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Botão fechar */
+.fecharModal {
+    border: none;
+    background: transparent;
+    color: #666666;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.fecharModal:hover {
+    color: #1B3A5C;
+}
+
+
+/* Formulário */
+
+#formNovoLivro,
+#formLivro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#formNovoLivro label,
+#formLivro label {
+    color: #444444;
+    font-size: 13px;
+}
+
+#formNovoLivro input,
+#formNovoLivro select,
+#formLivro input,
+#formLivro select {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+#formNovoLivro input:focus,
+#formNovoLivro select:focus,
+#formLivro input:focus,
+#formLivro select:focus {
+    border-color: #496987;
+}
+
+#novaObservacaoLivro,
+#observacaoLivro {
+    width: 100%;
+    min-height: 80px;
+
+    padding: 10px;
+
+    resize: vertical;
+
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+
+    outline: none;
+}
+
+#novaObservacaoLivro:focus,
+#observacaoLivro:focus {
+    border-color: #496987;
+}
+
+/* Botões do modal */
+.modalAcoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    height: 35px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    background-color: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnCancelar:hover {
+    background-color: #F4F4F4;
+}
+
+.btnSalvar {
+    background-color: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}

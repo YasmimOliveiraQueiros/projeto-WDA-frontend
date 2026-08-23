@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editoras - Altis+ Biblioteca</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/profile-menu/profile-menu.css">
+    <link rel="stylesheet" href="publishers.css">
+</head>
+
+<body data-tipo-usuario="admin">
+
+    <div class="container">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <img src="../../../assets/icons/logo-book.svg" alt="Altis+ Biblioteca" class="logo-icon">
+            </div>
+
+            <nav>
+
+                <a href="../dashboard/dashboard.html">
+                    <img src="../../../assets/icons/dashboard.svg" alt="Dashboard" class="icon-nav">
+                    Dashboard
+                </a>
+
+                <a href="../loans/loans.html">
+                    <img src="../../../assets/icons/loans.svg" alt="Aluguéis" class="icon-nav">
+                    Aluguéis
+                </a>
+
+                <a href="../books/books.html">
+                    <img src="../../../assets/icons/books.svg" alt="Livros" class="icon-nav">
+                    Livros
+                </a>
+
+                <a href="publishers.html" class="ativo">
+                    <img src="../../../assets/icons/publishers.svg" alt="Editoras" class="icon-nav">
+                    Editoras
+                </a>
+
+                <a href="../users/users.html">
+                    <img src="../../../assets/icons/users.svg" alt="Usuários" class="icon-nav">
+                    Usuários
+                </a>
+
+            </nav>
+
+            <span class="admin">Admin</span>
+
+        </aside>
+
+        <div class="content">
+
+            <header>
+                <div>
+                    <h1>Altis+ Biblioteca</h1>
+                    <p>Controle de editoras</p>
+                </div>
+
+                <div class="perfil">
+
+                    <div class="avatar">
+                        LF
+                    </div>
+
+                    <span>Levy Fernandes</span>
+
+                </div>
+            </header>
+
+
+            <main>
+
+                <div class="topo">
+
+                    <div class="cards">
+
+                        <div class="card">
+                            <p>
+                                <span class="editoras"></span>
+                                Editoras
+                            </p>
+                            <h2 id="totalEditoras">0</h2>
+                        </div>
+
+
+                        <div class="card">
+                            <p>
+                                <span class="livros"></span>
+                                Livros vinculados
+                            </p>
+                            <h2 id="totalLivros">0</h2>
+                        </div>
+                    </div>
+
+                    <button class="btnNova" id="btnNovaEditora">
+                        + Nova editora
+                    </button>
+                </div>
+
+
+                <div class="pesquisa">
+                    <input
+                        type="text"
+                        id="campoBusca"
+                        placeholder="Buscar por nome ou e-mail">
+                </div>
+
+
+                <div class="tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Livros cadastrados</th>
+                                <th>Status</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaEditoras"></tbody>
+
+                    </table>
+                </div>
+            </main>
+
+
+            <!-- Modal: Editar editora -->
+            <div class="modal" id="modalEditora">
+
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+
+                        <h2>Editar editora</h2>
+
+                        <button
+                            type="button"
+                            class="fecharModal"
+                            id="fecharModalEditora">
+
+                            &times;
+                        </button>
+
+                    </div>
+
+                    <form id="formEditora">
+
+                        <label for="nomeEditora">
+                            Nome da editora
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeEditora"
+                            required>
+
+
+                        <label for="cnpjEditora">
+                            CNPJ
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cnpjEditora"
+                            placeholder="00.000.000/0000-00"
+                            required>
+
+
+                        <label for="cidadeEditora">
+                            Cidade - UF
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cidadeEditora"
+                            placeholder="São Paulo - SP"
+                            required>
+
+
+                        <label for="exemplaresEditora">
+                            Quantidade de exemplares
+                        </label>
+
+                        <input
+                            type="number"
+                            id="exemplaresEditora"
+                            min="0"
+                            required>
+
+
+                        <label for="emailEditora">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="emailEditora"
+                            placeholder="contato@editora.com"
+                            required>
+
+
+                        <label for="statusEditora">
+                            Status
+                        </label>
+
+                        <select id="statusEditora">
+                            <option value="ativa">
+                                Ativa
+                            </option>
+
+                            <option value="inativa">
+                                Inativa
+                            </option>
+                        </select>
+
+                        <div class="modalAcoes">
+
+                            <button
+                                type="button"
+                                class="btnCancelar"
+                                id="cancelarEditora">
+                                Cancelar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="btnSalvar">
+                                Salvar
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal: Nova editora -->
+            <div class="modal" id="modalNovaEditora">
+
+                <div class="modalConteudo">
+
+                    <div class="modalCabecalho">
+                        <h2>Nova editora</h2>
+
+                        <button
+                        type="button"
+                        class="fecharModal"
+                        id="fecharModalNovaEditora">
+                        &times;
+                        </button>
+                    </div>
+
+                    <form id="formNovaEditora">
+
+                        <label for="novoNomeEditora">
+                            Nome da editora
+                        </label>
+
+                        <input
+                        type="text"
+                        id="novoNomeEditora"
+                        placeholder="Nome da editora">
+
+                        <label for="novoEmailEditora">
+                            E-mail
+                        </label>
+
+                        <input
+                        type="email"
+                        id="novoEmailEditora"
+                        placeholder="E-mail">
+
+                        <label for="novoCnpjEditora">
+                            CNPJ
+                        </label>
+
+                        <input
+                        type="text"
+                        id="novoCnpjEditora"
+                        placeholder="00.000.000/0000-00">
+
+                        <label for="novaCidadeEditora">
+                            Cidade
+                        </label>
+
+                        <input
+                        type="text"
+                        id="novaCidadeEditora"
+                        placeholder="Cidade - UF">
+
+                        <label for="novosExemplaresEditora">
+                            Exemplares
+                        </label>
+
+                        <input
+                        type="number"
+                        id="novosExemplaresEditora"
+                        min="0"
+                        value="0">
+
+                        <label for="novoStatusEditora">
+                            Status
+                        </label>
+
+                        <select id="novoStatusEditora">
+                            <option value="ativa">
+                                Ativa
+                            </option>
+
+                            <option value="inativa">
+                                Inativa
+                            </option>
+                        </select>
+
+
+                        <div class="modalAcoes">
+
+                            <button
+                            type="button"
+                            class="btnCancelar"
+                            id="cancelarNovaEditora">
+                            Cancelar
+                            </button>
+
+                            <button
+                            type="submit"
+                            class="btnSalvar">
+                            Salvar
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="publishers.js"></script>
+    <script src="../css/profile-menu/js/i18.js"></script>
+    <script src="../css/profile-menu/profile-menu.js"></script>
+
+</body>
+
+</html>
