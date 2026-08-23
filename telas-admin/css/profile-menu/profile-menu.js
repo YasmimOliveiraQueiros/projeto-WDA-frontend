@@ -12,7 +12,7 @@ if (perfil && avatar) {
 
     menu.innerHTML = `
         <button class="menuItem" id="btnIdioma">
-            <span>Idioma</span>
+            <span data-i18n="menu.idioma">Idioma</span>
             <i class="fa-solid fa-chevron-right"></i>
         </button>
 
@@ -33,7 +33,7 @@ if (perfil && avatar) {
         </div>
 
         <button class="menuItem" id="btnSair">
-            <span>Sair</span>
+            <span data-i18n="menu.sair">Sair</span>
         </button>
 
         ${
@@ -44,7 +44,7 @@ if (perfil && avatar) {
                         class="menuItem encerrarConta"
                         id="btnEncerrarConta">
 
-                        <span>Encerrar conta</span>
+                        <span data-i18n="menu.encerrarConta">Encerrar conta</span>
 
                     </button>
                   `
@@ -57,8 +57,8 @@ if (perfil && avatar) {
 
 
     /* Traduz os textos recém-criados do menu com o idioma já salvo */
-    if (typeof traduzirPagina === "function") {
-        traduzirPagina(localStorage.getItem("idioma") || "pt");
+    if (typeof aplicarIdioma === "function") {
+        aplicarIdioma(localStorage.getItem("idioma") || "pt");
     }
 
 
@@ -111,7 +111,7 @@ if (perfil && avatar) {
     });
 
 
-    /* Idiomas — agora traduz a página inteira de verdade */
+    /* Idiomas — agora aplica a tradução de verdade na página inteira */
 
     document
         .querySelectorAll("[data-idioma]")
@@ -121,8 +121,8 @@ if (perfil && avatar) {
 
                 const idioma = botao.dataset.idioma;
 
-                if (typeof traduzirPagina === "function") {
-                    traduzirPagina(idioma);
+                if (typeof aplicarIdioma === "function") {
+                    aplicarIdioma(idioma);
                 } else {
                     localStorage.setItem("idioma", idioma);
                 }

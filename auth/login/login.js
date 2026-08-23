@@ -83,7 +83,7 @@ form.addEventListener("submit", function (event) {
     if (usuario.role === "admin") {
 
         window.location.replace(
-            "../../loans/telas-admin/admin/dashboard/dashboard.html"
+            "../../telas-admin/dashboard/dashboard.html"
         );
 
         return;
@@ -93,7 +93,7 @@ form.addEventListener("submit", function (event) {
     if (usuario.role === "tenant") {
 
         window.location.replace(
-            "../../loans/tenants/dashboard/dashboard.html"
+            "../../tenants/dashboard/dashboard.html"
         );
 
         return;
