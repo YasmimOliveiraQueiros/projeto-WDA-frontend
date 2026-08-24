@@ -11,8 +11,18 @@ if (perfil && avatar) {
     menu.classList.add("menuPerfil");
 
     menu.innerHTML = `
+        ${
+            tipoUsuario === "tenant"
+                ? `
+                    <button class="menuItem" id="btnEditarPerfil">
+                        <span>Editar perfil</span>
+                    </button>
+                  `
+                : ""
+        }
+
         <button class="menuItem" id="btnIdioma">
-            <span data-i18n="menu.idioma">Idioma</span>
+            <span>Idioma</span>
             <i class="fa-solid fa-chevron-right"></i>
         </button>
 
@@ -33,7 +43,7 @@ if (perfil && avatar) {
         </div>
 
         <button class="menuItem" id="btnSair">
-            <span data-i18n="menu.sair">Sair</span>
+            <span>Sair</span>
         </button>
 
         ${
@@ -44,7 +54,7 @@ if (perfil && avatar) {
                         class="menuItem encerrarConta"
                         id="btnEncerrarConta">
 
-                        <span data-i18n="menu.encerrarConta">Encerrar conta</span>
+                        <span>Encerrar conta</span>
 
                     </button>
                   `
@@ -56,9 +66,193 @@ if (perfil && avatar) {
     document.body.appendChild(menu);
 
 
+    /* Modal de editar perfil (só locatário) */
+    if (tipoUsuario === "tenant") {
+
+        const modalPerfil = document.createElement("div");
+
+        modalPerfil.classList.add("modal");
+        modalPerfil.id = "modalEditarPerfil";
+
+        modalPerfil.innerHTML = `
+        
+            <div class="modalConteudo">
+
+                <div class="modalCabecalho">
+                    <h2>Editar perfil</h2>
+
+                    <button
+                        type="button"
+                        class="fecharModal"
+                        id="fecharModalEditarPerfil">
+                        &times;
+                    </button>
+                </div>
+
+                <form id="formEditarPerfil">
+
+                    <div class="campo campoCompleto">
+                        <label for="perfilNome">Nome</label>
+                        <input type="text" id="perfilNome" required>
+                    </div>
+
+                    <div class="campo campoCompleto">
+                        <label for="perfilEmail">E-mail</label>
+                        <input type="email" id="perfilEmail" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfilTelefone">Telefone</label>
+                        <input type="text" id="perfilTelefone">
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfilEndereco">Endereço</label>
+                        <input type="text" id="perfilEndereco">
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfilCpf">CPF</label>
+                        <input type="text" id="perfilCpf" disabled>
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfilDataNascimento">Data de nascimento</label>
+                        <input type="date" id="perfilDataNascimento" disabled>
+                    </div>
+
+                    <div class="campo campoCompleto">
+                        <label for="perfilSenha">Nova senha (opcional)</label>
+                        <input
+                            type="password"
+                            id="perfilSenha"
+                            placeholder="Deixe em branco para não alterar">
+                    </div>
+
+                    <div class="campo campoCompleto">
+                        <label for="perfilConfirmarSenha">Confirmar nova senha</label>
+                        <input
+                            type="password"
+                            id="perfilConfirmarSenha">
+                    </div>
+
+                    <p id="perfilMensagemErro" class="mensagem-erro"></p>
+
+                    <div class="modalAcoes">
+                        <button
+                            type="button"
+                            class="btnCancelar"
+                            id="cancelarEditarPerfil">
+                            Cancelar
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btnSalvar">
+                            Salvar
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        `;
+
+        document.body.appendChild(modalPerfil);
+
+
+        const btnEditarPerfil = document.getElementById("btnEditarPerfil");
+        const fecharModalEditarPerfil = document.getElementById("fecharModalEditarPerfil");
+        const cancelarEditarPerfil = document.getElementById("cancelarEditarPerfil");
+        const formEditarPerfil = document.getElementById("formEditarPerfil");
+        const perfilMensagemErro = document.getElementById("perfilMensagemErro");
+
+
+        function abrirModalPerfil() {
+
+            const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado") || "null");
+
+            if (!usuarioLogado) {
+                return;
+            }
+
+            document.getElementById("perfilNome").value = usuarioLogado.nome || "";
+            document.getElementById("perfilEmail").value = usuarioLogado.email || "";
+            document.getElementById("perfilTelefone").value = usuarioLogado.telefone || "";
+            document.getElementById("perfilEndereco").value = usuarioLogado.endereco || "";
+            document.getElementById("perfilCpf").value = usuarioLogado.cpf || "";
+            document.getElementById("perfilDataNascimento").value = usuarioLogado.dataNascimento || "";
+            document.getElementById("perfilSenha").value = "";
+            document.getElementById("perfilConfirmarSenha").value = "";
+            perfilMensagemErro.textContent = "";
+
+            modalPerfil.classList.add("aberto");
+            menu.classList.remove("aberto");
+        }
+
+
+        btnEditarPerfil.addEventListener("click", abrirModalPerfil);
+
+        fecharModalEditarPerfil.addEventListener("click", function () {
+            modalPerfil.classList.remove("aberto");
+        });
+
+        cancelarEditarPerfil.addEventListener("click", function () {
+            modalPerfil.classList.remove("aberto");
+        });
+
+        modalPerfil.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+
+
+        formEditarPerfil.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const usuarioLogado = JSON.parse(sessionStorage.getItem("usuarioLogado") || "null");
+
+            if (!usuarioLogado) {
+                return;
+            }
+
+            const novaSenha = document.getElementById("perfilSenha").value;
+            const confirmarSenha = document.getElementById("perfilConfirmarSenha").value;
+
+            if (novaSenha !== "" && novaSenha !== confirmarSenha) {
+                perfilMensagemErro.textContent = "As senhas não coincidem.";
+                return;
+            }
+
+            /* Atualiza os dados só na sessão atual (sem persistir em banco/localStorage) */
+            usuarioLogado.nome = document.getElementById("perfilNome").value.trim();
+            usuarioLogado.email = document.getElementById("perfilEmail").value.trim();
+            usuarioLogado.telefone = document.getElementById("perfilTelefone").value.trim();
+            usuarioLogado.endereco = document.getElementById("perfilEndereco").value.trim();
+            /* CPF e data de nascimento não são alterados */
+
+            if (novaSenha !== "") {
+                usuarioLogado.senha = novaSenha;
+            }
+
+            sessionStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+
+            /* Atualiza o nome exibido no cabeçalho, se existir */
+            const spanPerfil = perfil.querySelector("span");
+            if (spanPerfil) {
+                spanPerfil.textContent = usuarioLogado.nome;
+            }
+
+            modalPerfil.classList.remove("aberto");
+            alert("Perfil atualizado com sucesso! (válido até você sair da conta)");
+        });
+
+    }
+
+
     /* Traduz os textos recém-criados do menu com o idioma já salvo */
-    if (typeof aplicarIdioma === "function") {
-        aplicarIdioma(localStorage.getItem("idioma") || "pt");
+    if (typeof traduzirPagina === "function") {
+        traduzirPagina(localStorage.getItem("idioma") || "pt");
     }
 
 
@@ -111,7 +305,7 @@ if (perfil && avatar) {
     });
 
 
-    /* Idiomas — agora aplica a tradução de verdade na página inteira */
+    /* Idiomas — traduz a página inteira de verdade */
 
     document
         .querySelectorAll("[data-idioma]")
@@ -121,8 +315,8 @@ if (perfil && avatar) {
 
                 const idioma = botao.dataset.idioma;
 
-                if (typeof aplicarIdioma === "function") {
-                    aplicarIdioma(idioma);
+                if (typeof traduzirPagina === "function") {
+                    traduzirPagina(idioma);
                 } else {
                     localStorage.setItem("idioma", idioma);
                 }
@@ -144,7 +338,7 @@ if (perfil && avatar) {
 
         sessionStorage.clear();
 
-        window.location.replace("../login/login.html");
+        window.location.replace("/auth/login/login.html");
 
     });
 
@@ -167,13 +361,9 @@ if (perfil && avatar) {
                 return;
             }
 
-            /*
-             * Futuramente:
-             * 1. verificar pendências;
-             * 2. excluir/desativar conta no backend;
-             * 3. encerrar sessão;
-             * 4. redirecionar para login.
-             */
+            sessionStorage.clear();
+
+            window.location.replace("/auth/login/login.html");
 
         });
 

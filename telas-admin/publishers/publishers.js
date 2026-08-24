@@ -34,6 +34,7 @@ const editoras = [
 ];
 
 
+
 const listaEditoras = document.getElementById("listaEditoras");
 const totalEditoras = document.getElementById("totalEditoras");
 const totalLivros = document.getElementById("totalLivros");
@@ -61,7 +62,6 @@ const novaCidadeEditora = document.getElementById("novaCidadeEditora");
 const novosExemplaresEditora = document.getElementById("novosExemplaresEditora");
 const novoEmailEditora = document.getElementById("novoEmailEditora");
 const novoStatusEditora = document.getElementById("novoStatusEditora");
-
 
 function mostrarEditoras(lista) {
 
@@ -174,6 +174,8 @@ formEditora.addEventListener("submit", function(event) {
     editoraEditando.email = emailEditora.value;
     editoraEditando.status = statusEditora.value;
 
+    salvarEditoras(editoras);
+
     modalEditora.classList.remove("aberto");
 
     editoraEditando = null;
@@ -222,6 +224,8 @@ formNovaEditora.addEventListener("submit", function(event) {
     };
 
     editoras.push(novaEditora);
+
+    salvarEditoras(editoras);
 
     modalNovaEditora.classList.remove("aberto");
     formNovaEditora.reset();
@@ -294,6 +298,8 @@ function excluirEditora(id) {
     const indice = editoras.findIndex(editora => editora.id === id);
 
     editoras.splice(indice, 1);
+
+    salvarEditoras(editoras);
 
     atualizarCards();
     filtrarEditoras();

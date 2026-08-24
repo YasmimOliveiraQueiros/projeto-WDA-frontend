@@ -70,3 +70,169 @@
 .submenuIdioma button:hover {
     background-color: #F4F7FA;
 }
+
+
+/* Modal de editar perfil (criado dinamicamente pelo profile-menu.js) */
+/* Modal */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modalConteudo {
+    width: 520px;
+    max-width: 90%;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cabeçalho */
+
+.modalCabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.modalCabecalho h2 {
+    margin: 0;
+    color: #1B3A5C;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.fecharModal {
+    border: none;
+    background: transparent;
+    color: #666666;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fecharModal:hover {
+    color: #1B3A5C;
+}
+
+/* Formulário */
+
+#formEditarPerfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 5px;
+}
+
+/* Campos */
+
+#formEditarPerfil .campo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+#formEditarPerfil .campoCompleto {
+    grid-column: 1 / -1;
+}
+
+/* Labels */
+
+#formEditarPerfil label {
+    color: #1B3A5C;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+/* Inputs */
+
+#formEditarPerfil input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding: 7px 9px;
+    border: 1px solid #1B3A5C;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    outline: none;
+    background: #FFFFFF;
+}
+
+#formEditarPerfil input:focus {
+    border-color: #1B3A5C;
+}
+
+#formEditarPerfil input:disabled {
+    background: #F4F4F4;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+#formEditarPerfil input::placeholder {
+    color: #999999;
+}
+
+/* Mensagem de erro */
+
+.mensagem-erro {
+    grid-column: 1 / -1;
+    color: #C62828;
+    font-size: 11px;
+    margin: 3px 0 0;
+    min-height: 14px;
+}
+
+/* Botões */
+
+.modalAcoes {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btnCancelar,
+.btnSalvar {
+    padding: 7px 16px;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btnCancelar {
+    background: #FFFFFF;
+    border: 1px solid #1B3A5C;
+    color: #1B3A5C;
+}
+
+.btnCancelar:hover {
+    background: #F4F4F4;
+}
+
+.btnSalvar {
+    background: #1B3A5C;
+    border: 1px solid #1B3A5C;
+    color: #FFFFFF;
+}
+
+.btnSalvar:hover {
+    opacity: 0.9;
+}
